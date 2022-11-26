@@ -60,10 +60,12 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use 'neovim/nvim-lspconfig'
   use {
       'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
   }
   use "nvim-lua/plenary.nvim"
   use {
