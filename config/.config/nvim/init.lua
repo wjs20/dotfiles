@@ -17,6 +17,7 @@ o.hlsearch = false
 o.showmatch = true
 o.termguicolors = true
 o.syntax = 'on'
+o.signcolumn = 'yes'
 
 vim.g.mapleader = ' '
 local map = vim.keymap.set
@@ -31,14 +32,13 @@ map('n', 'B', '^')
 map('n', 'E', '$')
 map('n', '$', '<nop>')
 map('n', '^', '<nop>')
-map('v', 'f', '!black -q -l 30 --fast - <cr>')
+-- map('v', 'f', '!black -q -l 30 --fast - <cr>')
 
 require('colourscheme')
 require('statusline')
 require('treesitter')
-require('_lspconfig')
 require('_telescope')
-require('_cmp')
+require('_lspconfig')
 
 local ensure_packer = function()
   local fn = vim.fn

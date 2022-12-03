@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux) # z if zoxide not installed
+plugins=(dotenv git tmux) # z if zoxide not installed
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 alias cat="batcat"
 alias ls="exa --long --header"
 alias vim="nvim"
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
