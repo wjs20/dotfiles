@@ -18,6 +18,8 @@ o.showmatch = true
 o.termguicolors = true
 o.syntax = 'on'
 o.signcolumn = 'yes'
+o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+o.undofile = true
 
 vim.g.mapleader = ' '
 local map = vim.keymap.set
