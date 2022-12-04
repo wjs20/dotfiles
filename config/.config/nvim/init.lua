@@ -20,6 +20,7 @@ o.syntax = 'on'
 o.signcolumn = 'yes'
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile = true
+o.filetype = 'on'
 
 vim.g.mapleader = ' '
 local map = vim.keymap.set
@@ -34,13 +35,13 @@ map('n', 'B', '^')
 map('n', 'E', '$')
 map('n', '$', '<nop>')
 map('n', '^', '<nop>')
--- map('v', 'f', '!black -q -l 30 --fast - <cr>')
 
 require('colourscheme')
 require('statusline')
 require('treesitter')
 require('_telescope')
 require('_lspconfig')
+require('snippets')
 
 local ensure_packer = function()
   local fn = vim.fn
@@ -82,7 +83,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-
+  use "rafamadriz/friendly-snippets"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
