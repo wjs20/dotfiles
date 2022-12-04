@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 alias cat="batcat"
 alias ls="exa --long --header"
 alias vim="nvim"
+alias ev="nvim $HOME/.config/nvim/init.lua"
+alias el="nvim $HOME/.config/nvim/lua"
 
 export PATH="$HOME/.local/bin:$PATH"
 
