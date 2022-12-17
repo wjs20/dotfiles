@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(dotenv git tmux) # z if zoxide not installed
+plugins=(aliases dotenv git tmux) # z if zoxide not installed
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,6 +104,7 @@ alias ls="exa --long --header"
 alias vim="nvim"
 alias ev="nvim $HOME/.config/nvim/init.lua"
 alias el="nvim $HOME/.config/nvim/lua"
+alias pm="python manage.py"
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -141,4 +142,5 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-export PATH="$HOME/nvim-linux64/bin:$PATH"
+export PATH="$PATH:$HOME/nvim-linux64/bin"
+export PATH="$PATH:/usr/local/go/bin"
