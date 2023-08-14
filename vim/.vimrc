@@ -41,8 +41,6 @@ call plug#end()
 "" autocmd vimenter * ++nested colorscheme gruvbox
 "" let g:gruvbox_contrast_dark = 'medium'
 
-colorscheme monokai
-
 autocmd BufWritePre *.py :%s/\s\+$//e
 let mapleader = ' '
 
