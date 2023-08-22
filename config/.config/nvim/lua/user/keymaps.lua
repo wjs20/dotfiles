@@ -1,15 +1,17 @@
 vim.g.mapleader = ' '
 local map = vim.keymap.set
-map('n', '<leader>h', '<cmd>wincmd h<cr>')
-map('n', '<leader>j', '<cmd>wincmd j<cr>')
-map('n', '<leader>k', '<cmd>wincmd k<cr>')
-map('n', '<leader>l', '<cmd>wincmd l<cr>')
-map('n', '<leader>o', '<cmd>wincmd o<cr>')
-map('n', '<leader>ff', '<cmd>Files<cr>')
-map('n', '<leader>fg', '<cmd>GFiles<cr>')
-map('n', '<leader>pv', '<cmd>Ex<cr>')
-map('n', '<leader>x', '<cmd>!chmod 700 %<cr>')
-map('n', '<C-w>', '<cmd>w<cr>')
+map('n', '<leader>h', '<cmd>wincmd h<CR>')
+map('n', '<leader>j', '<cmd>wincmd j<CR>')
+map('n', '<leader>k', '<cmd>wincmd k<CR>')
+map('n', '<leader>l', '<cmd>wincmd l<CR>')
+map('n', '<leader>o', '<cmd>wincmd o<CR>')
+map('n', '<leader>ff', '<cmd>Files<CR>')
+map('n', '<leader>fg', '<cmd>GFiles<CR>')
+map('n', '<leader>pv', '<cmd>Ex<CR>')
+map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
+map('n', 'gf', '<cmd>e <cfile><CR>')
+map('n', '<leader>dd', 'ggdG')
+map('i', '<C-w>', '<esc><cmd>w<cr>')
 
 -- plugin specific
 

@@ -34,7 +34,7 @@ autocmd({ 'BufWritePre' }, {
 })
 
 
-local python_group = augroup('Format', { clear = true })
+local python = augroup('Format', { clear = true })
 autocmd({ 'BufWritePre' }, {
     callback = function()
         vim.cmd([[
@@ -43,7 +43,7 @@ autocmd({ 'BufWritePre' }, {
             silent! normal `a
         ]])
     end,
-    group = python_group,
+    group = python,
     pattern = '*.py'
 })
 autocmd({ 'BufWritePre' }, {
@@ -54,6 +54,14 @@ autocmd({ 'BufWritePre' }, {
             silent! normal `a
         ]])
     end,
-    group = python_group,
+    group = python,
     pattern = '*.py'
+})
+
+
+local skeletons = augroup('Skeletons', { clear = true })
+autocmd({ 'BufNewFile' }, {
+    command = "0r ~/skeletons/bash.sh",
+    group = skeletons,
+    pattern = "*.sh"
 })

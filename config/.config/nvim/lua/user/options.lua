@@ -23,7 +23,7 @@ o.softtabstop = 4
 o.shiftwidth = 4
 o.shiftround = true -- rounds >< operator shifting to multiple of shiftwidth (vimtricks)
 o.autoindent = true
--- o.smartindent = true
+o.smartindent = true
 
 -- Search
 o.incsearch = true
@@ -42,4 +42,4 @@ o.updatetime = 50
 o.list = true
 o.listchars:append "eol:↴"
 
-o.clipboard = 'unnamedplus'
+o.clipboard = "unnamedplus"

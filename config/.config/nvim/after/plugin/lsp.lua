@@ -27,78 +27,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
-
-require('lspconfig')['ruff_lsp'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-  capabilities = capabilities,
-  init_options = {
-    settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {"--config=~/.config/.ruff.toml"},
-    }
-  }
-}
-
-require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities
-}
-
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-    -- Server-specific settings...
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-}
-
-require('lspconfig')['emmet_ls'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
-}
-
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
-
 local cmp = require'cmp'
 local luasnip = require("luasnip")
 local has_words_before = function()
@@ -153,7 +81,7 @@ cmp.setup({
 
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
+        { name = 'nvim_lsp', keyword_length = 5 },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
@@ -189,3 +117,64 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require('lspconfig')['ruff_lsp'].setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {"--config=~/.config/.ruff.toml"},
+    }
+  }
+}
+
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+require('lspconfig')['rust_analyzer'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- Server-specific settings...
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+}
+
+require('lspconfig')['emmet_ls'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+}
+
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
