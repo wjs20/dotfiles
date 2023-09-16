@@ -223,6 +223,12 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$PATH:$HOME/mambaforge/envs/antibody_modeller_env/bin"
 
 
+# sequence analysis
+export PATH="$PATH:$HOME/git/FAMSA:$HOME/git/seqtk"
+
+# sequence clustering
+export PATH="$PATH:$HOME/.local/bin/cd-hit-v4.8.1-2019-0228"
+
 # git@github.com:stephenturner/oneliners.git
 # clear shortcut
 alias c='clear'
