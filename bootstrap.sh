@@ -16,6 +16,8 @@ sudo apt-get install -y --no-install-recommends \
     wget \
     fzf \
     ripgrep \
+    fd-find \
+    sd \
     zsh \
     bat \
     exa \
@@ -42,6 +44,9 @@ sudo apt-get install -y --no-install-recommends \
     python3-venv
 
 curl https://pyenv.run | bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+cargo install sd
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
