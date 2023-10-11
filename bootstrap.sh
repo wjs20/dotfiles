@@ -19,7 +19,8 @@ sudo apt-get install -y --no-install-recommends \
     zsh \
     bat \
     exa \
-    stow
+    stow \
+    shellcheck
 
 # python
 sudo apt-get install -y --no-install-recommends \
