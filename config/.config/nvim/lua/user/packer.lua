@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
     use "tpope/vim-fugitive"
     use "mbbill/undotree"
     use "nvim-lua/plenary.nvim"
-    use { "nvim-telescope/telescope.nvim", tag = "0.1.0" }
+    use { "nvim-telescope/telescope.nvim" }
     use { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} }
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
     use { "kylechui/nvim-surround", tag = "*"}
@@ -32,7 +32,10 @@ return require("packer").startup(function(use)
             ts_update()
         end,
     }
-
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
     -- Configurations for Nvim LSP
     use "neovim/nvim-lspconfig"
     use "hrsh7th/cmp-nvim-lsp"

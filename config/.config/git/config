@@ -1,8 +1,8 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = vim
+	editor = nvim
 [merge]
 	tool = vimdiff
 [include]
-    path = ~/dotfiles/git/.gitconfig.local
+    path = ~/.config/git/config.local

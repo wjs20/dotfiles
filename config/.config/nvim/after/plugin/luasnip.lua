@@ -113,4 +113,7 @@ ls.add_snippets("python", {
     }, {
         repeat_duplicates = true
     })),
+    s("fl", { t("self.client.force_login(self.user)") }),
+    s("cg", { t("response = self.client.get(self.url)") }),
+    s("cp", { t("response = self.client.post(self.url, data=data)") })
 })

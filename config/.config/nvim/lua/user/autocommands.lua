@@ -25,15 +25,6 @@ autocmd({ 'BufWritePre' }, {
 })
 
 
-local indent = augroup('Indent', { clear = true })
-autocmd({ 'BufWritePre' }, {
-    command =  "normal ggVG=",
-    group = indent,
-    pattern = '*.html',
-    desc = 'removes whitespace from the end of the line'
-})
-
-
 local python = augroup('Format', { clear = true })
 autocmd({ 'BufWritePre' }, {
     callback = function()
@@ -64,4 +55,11 @@ autocmd({ 'BufNewFile' }, {
     command = "0r ~/skeletons/bash.sh",
     group = skeletons,
     pattern = "*.sh"
+})
+
+local css_omnicomplete = augroup('CSSOmnicomplete', { clear = true })
+autocmd({ 'BufNewFile' }, {
+    command = "set omnifunc=csscomplete#CompleteCSS",
+    group = css_omnicomplete,
+    pattern = "*.css"
 })

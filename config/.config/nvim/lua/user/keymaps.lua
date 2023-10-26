@@ -7,13 +7,16 @@ map('n', '<leader>l', '<cmd>wincmd l<CR>')
 map('n', '<leader>o', '<cmd>wincmd o<CR>')
 map('n', '<leader>ff', '<cmd>Files<CR>')
 map('n', '<leader>fg', '<cmd>GFiles<CR>')
-map('n', '<leader>pv', '<cmd>Ex<CR>')
-map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
-map('n', 'gf', '<cmd>e <cfile><CR>')
-map('n', '<leader>dd', 'ggdG')
-map('i', '<C-w>', '<esc><cmd>w<cr>')
+map('i', '<C>w', '<esc><cmd>w<CR>')
 
--- plugin specific
+-- open netrw
+map('n', '<leader>pv', '<cmd>Ex<CR>')
+
+-- make a file executable
+map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
+
+-- open filename under cursor
+map('n', 'gf', '<cmd>e <cfile><CR>')
 
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
@@ -25,4 +28,7 @@ map('n', '<leader>gw', vim.cmd.Git)
 map('n', '<leader>ut', vim.cmd.UndotreeToggle)
 
 -- toggle symbols outline
-map('n', '<leader>st', vim.cmd.SymbolsOutline)
+map('n', '<leader>so', vim.cmd.SymbolsOutline)
+
+-- convert html files to htmldjango filetype (for syntax highlighting)
+map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')

@@ -40,6 +40,6 @@ o.filetype = 'on'
 o.updatetime = 50
 
 o.list = true
-o.listchars:append "eol:↴"
+o.listchars:append "eol:↵"
 
 o.clipboard = "unnamedplus"

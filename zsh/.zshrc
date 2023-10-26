@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -108,16 +109,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 alias cat="batcat"
 alias ls="exa"
+
+# edit zshrc
 alias ez="nvim ~/.zshrc"
+
+# create a secret key
 alias gensecret="openssl rand -hex 40"
 
 # open previous command in neovim
 alias fc="fc -e vim"
 
 #virtualenv
-alias vba=". venv/bin/activate"
+alias vba=". .venv/bin/activate"
 
 # python
 alias pyserve="python -m http.server"
@@ -128,14 +134,11 @@ alias pipfr="python -m pip freeze"
 alias pipin="python -m pip install"
 alias whichpy="pyenv which python"
 
+# mamba
 alias ma="mamba activate"
-# export PIP_REQUIRE_VIRTUALENV=true
-export PIPENV_VENV_IN_PROJECT=1
 
 # nvim
 alias vim="nvim"
-alias ev="nvim $HOME/.config/nvim/init.lua"
-alias el="nvim $HOME/.config/nvim/lua"
 
 # Django
 alias pm="python manage.py"
@@ -144,8 +147,11 @@ alias pmt="python manage.py test"
 alias cr="coverage report"
 alias chtml="coverage html"
 alias crmt="coverage run --source='.' manage.py test"
-alias dcrpt="docker-compose run --rm django pytest"
-alias dcrpm="docker-compose run --rm django python manage.py"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+alias dcr="docker-compose run"
+alias dce="docker-compose exec"
+alias dcl="docker-compose logs"
 
 # pytest
 alias pt="pytest"
@@ -155,22 +161,36 @@ alias ptvvv="pytest -vvv"
 alias ptcov="pytest --cov-report term --cov=src tests"
 alias ptcovh="pytest --cov-report html --cov=src tests"
 
-
 # Docker
 alias dr="docker container run --rm"
 alias drit="docker container run -it --rm"
-
 
 # https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
 alias -s {js,json,env,md,html,css,toml,yaml,yml}=cat # just type file name and it will be printed to terminal
 alias -s git="git clone" # instead of $git clone git@github.com:wjs20/dotfiles.git, just do $git@github.com:wjs20/dotfiles
 
-
 # Postgres
 alias pgpsql="sudo -u postgres psql"
 
-export PATH="$PATH:$HOME/.local/bin"
+# HTTP
+alias GET='http --follow --timeout 6'
+
+# git@github.com:stephenturner/oneliners.git
+# clear shortcut
+alias c='clear'
+alias cls='clear && ls'
+
+# use cut on space or comma delimeted files
+alias cuts="cut -d \" \""
+alias cutc="cut -d \",\""
+
+# pack and unpack tar.gz files
+alias tarup="tar -zcf"
+alias tardown="tar -zxf"
+
+# show your $PATH in prettier format
+alias showpath='echo $PATH | tr ":" "\n" | nl'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -191,56 +211,37 @@ if [ -f "/home/ws/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+export PIP_REQUIRE_VIRTUALENV=true
+export PIPENV_VENV_IN_PROJECT=1
+
+export PATH="$PATH:$HOME/.local/bin"
+
+# add local tools to path if present
+if [[ -f $HOME/.local/paths ]]; then
+    source $HOME/.local/paths
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 eval "$(starship init zsh)"
 
 # turn off annoying green background to directories
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
-# FZF stuff
+# FZF
 PROJECT_HOME="~/repo"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="fd -t d -d 1 . $PROJECT_HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d -d 1 . $PROJECT_HOME"
 
-## Neovim stuff
+## Neovim
 export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
 
-# Pyenv stuff
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-
-# modelling cli tool
-export PATH="$PATH:$HOME/mambaforge/envs/antibody_modeller_env/bin"
-
-
-# sequence analysis
-export PATH="$PATH:$HOME/git/FAMSA:$HOME/git/seqtk"
-
-# sequence clustering
-export PATH="$PATH:$HOME/.local/bin/cd-hit-v4.8.1-2019-0228"
-
-# git@github.com:stephenturner/oneliners.git
-# clear shortcut
-alias c='clear'
-alias cls='clear && ls'
-
-# use cut on space or comma delimeted files
-alias cuts="cut -d \" \""
-alias cutc="cut -d \",\""
-
-# pack and unpack tar.gz files
-alias tarup="tar -zcf"
-alias tardown="tar -zxf"
 
 # generalized extract function
 # as suggested by Mendel Cooper in "Advanced Bash Scripting Guide"
@@ -265,6 +266,3 @@ extract () {
        echo "'$1' is not a valid file!"
    fi
 }
-
-# show your $PATH in prettier format
-alias showpath='echo $PATH | tr ":" "\n" | nl'
