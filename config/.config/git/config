@@ -4,5 +4,21 @@
 	editor = nvim
 [merge]
 	tool = vimdiff
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    frag = magenta bold
+    meta = yellow bold
+    new = green bold
+    old = red bold
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[help]
+    autoCorrect = immediate
 [include]
     path = ~/.config/git/config.local
