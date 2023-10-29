@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,8 +76,11 @@ plugins=(
     git
     tmux
     docker
+    docker-compose
+    python
     z
     zsh-syntax-highlighting
+    you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,66 +112,32 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 alias cat="batcat"
 alias ls="exa"
-
-# edit zshrc
 alias ez="nvim ~/.zshrc"
-
-# create a secret key
 alias gensecret="openssl rand -hex 40"
-
-# open previous command in neovim
-alias fc="fc -e vim"
-
-#virtualenv
-alias vba=". .venv/bin/activate"
-
-# python
-alias pyserve="python -m http.server"
-alias pipall="python -m pip install -rrequirements.txt"
-alias pipdev="python -m pip install -rrequirements.dev"
-alias piped="python -m pip install -e ."
-alias pipfr="python -m pip freeze"
-alias pipin="python -m pip install"
-alias whichpy="pyenv which python"
-
-# mamba
-alias ma="mamba activate"
-
-# nvim
 alias vim="nvim"
-
-# Django
+alias fc="fc -e vim"
+alias whichpy="pyenv which python"
+alias ma="mamba activate"
 alias pm="python manage.py"
 alias pmmm="python manage.py makemigrations && python manage.py migrate"
 alias pmt="python manage.py test"
 alias cr="coverage report"
 alias chtml="coverage html"
 alias crmt="coverage run --source='.' manage.py test"
-alias dcu="docker-compose up"
-alias dcd="docker-compose down"
-alias dcr="docker-compose run"
-alias dce="docker-compose exec"
-alias dcl="docker-compose logs"
-
-# pytest
 alias pt="pytest"
-alias ptv="pytest -v"
-alias ptvv="pytest -vv"
-alias ptvvv="pytest -vvv"
 alias ptcov="pytest --cov-report term --cov=src tests"
 alias ptcovh="pytest --cov-report html --cov=src tests"
 
-# Docker
+# Docker (fixes issue with docker plugin not including --rm flag)
 alias dr="docker container run --rm"
 alias drit="docker container run -it --rm"
 
 # https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
-alias -s {js,json,env,md,html,css,toml,yaml,yml}=cat # just type file name and it will be printed to terminal
-alias -s git="git clone" # instead of $git clone git@github.com:wjs20/dotfiles.git, just do $git@github.com:wjs20/dotfiles
+alias -s {js,json,env,md,html,css,toml,yaml,yml}=cat # cat pyproject.toml -> pyproject.toml
+alias -s git="git clone" # git clone git@github.com:wjs20/dotfiles.git -> git@github.com:wjs20/dotfiles.git
 
 # Postgres
 alias pgpsql="sudo -u postgres psql"
@@ -213,8 +182,8 @@ fi
 
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
-
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
 
 # add local tools to path if present
 if [[ -f $HOME/.local/paths ]]; then
@@ -230,21 +199,20 @@ eval "$(starship init zsh)"
 # turn off annoying green background to directories
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
-# FZF
-PROJECT_HOME="~/repo"
+# FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-## Neovim
-export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
-
-# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# generalized extract function
-# as suggested by Mendel Cooper in "Advanced Bash Scripting Guide"
+# better paging
+export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS --window=-4'
+
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
+
+# generalized extract function as suggested by Mendel Cooper in "Advanced Bash Scripting Guide"
 extract () {
    if [ -f $1 ] ; then
        case $1 in
@@ -265,4 +233,14 @@ extract () {
    else
        echo "'$1' is not a valid file!"
    fi
+}
+
+# reimplementation of python plugin's function to use virtualenv instead of venv
+mkv() {
+  local name="${1:-venv}"
+  local venvpath="${name:P}"
+
+  virtualenv "${name}" || return
+  echo >&2 "Created venv in '${venvpath}'"
+  vrun "${name}"
 }

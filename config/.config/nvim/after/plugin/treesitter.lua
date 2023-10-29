@@ -5,7 +5,7 @@ if not ok then
 end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "help", "python", "lua", "rust", "vim", "bash" },
+  ensure_installed = { "python", "lua", "rust", "vim", "bash" },
   sync_install = false,
   auto_install = false,
   highlight = {

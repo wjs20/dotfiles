@@ -27,6 +27,14 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+local ok, _ = pcall(require, 'cmp')
+if not ok then
+  print('colourscheme could not be loaded')
+  return
+else
+
+end
+
 local cmp = require'cmp'
 local luasnip = require("luasnip")
 local has_words_before = function()

@@ -11,3 +11,6 @@ error_symbol = "[|](bold red)"
 
 # [git_status]
 # disabled = true
+
+[git_commit]
+only_detached = false
