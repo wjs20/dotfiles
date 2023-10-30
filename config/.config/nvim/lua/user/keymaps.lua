@@ -7,7 +7,6 @@ map('n', '<leader>l', '<cmd>wincmd l<CR>')
 map('n', '<leader>o', '<cmd>wincmd o<CR>')
 map('n', '<leader>ff', '<cmd>Files<CR>')
 map('n', '<leader>fg', '<cmd>GFiles<CR>')
-map('i', '<C>w', '<esc><cmd>w<CR>')
 
 -- open netrw
 map('n', '<leader>pv', '<cmd>Ex<CR>')
