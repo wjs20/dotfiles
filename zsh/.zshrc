@@ -111,6 +111,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+alias acs="alias | grep"
 
 alias cat="batcat"
 alias ls="exa"
