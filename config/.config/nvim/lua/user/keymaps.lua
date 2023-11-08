@@ -5,6 +5,8 @@ map('n', '<leader>j', '<cmd>wincmd j<CR>')
 map('n', '<leader>k', '<cmd>wincmd k<CR>')
 map('n', '<leader>l', '<cmd>wincmd l<CR>')
 map('n', '<leader>o', '<cmd>wincmd o<CR>')
+map('n', '<leader>\\', '<cmd>wincmd |<CR>')
+map('n', '<leader>=', '<cmd>wincmd =<CR>')
 map('n', '<leader>ff', '<cmd>Files<CR>')
 map('n', '<leader>fg', '<cmd>GFiles<CR>')
 
