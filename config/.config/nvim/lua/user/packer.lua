@@ -22,7 +22,8 @@ return require("packer").startup(function(use)
     use { "mbbill/undotree" }
     use { "nvim-lua/plenary.nvim" }
     use { "nvim-telescope/telescope.nvim" }
-    use { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} }
+    -- use { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} }
+    use { "ellisonleao/gruvbox.nvim" }
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
     use { "kylechui/nvim-surround", tag = "*"}
     use { "windwp/nvim-autopairs" }

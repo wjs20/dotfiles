@@ -53,10 +53,15 @@ eval "$(pyenv init -)"
 python3 -m pip install --user --no-warn-script-location pipx
 # if pipx isn't on path then add it
 type -p pipx 1>/dev/null || python3 -m pipx ensurepath
-for package in virtualenv pipenv tox pytest black isort httpie bpython
-do
-    pipx install "$package"
-done
+
+pipx install virtualenv
+pipx install pipenv
+pipx install tox
+pipx install pytest
+pipx install black
+pipx install isort
+pipx install httpie
+pipx install csvkit
 
 # Neovim
 wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz

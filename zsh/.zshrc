@@ -135,6 +135,7 @@ alias ptcovh="pytest --cov-report html --cov=src tests"
 # Docker (fixes issue with docker plugin not including --rm flag)
 alias dr="docker container run --rm"
 alias drit="docker container run -it --rm"
+alias dsp="docker system prune"
 
 # https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
