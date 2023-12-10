@@ -131,6 +131,9 @@ alias crmt="coverage run --source='.' manage.py test"
 alias pt="pytest"
 alias ptcov="pytest --cov-report term --cov=src tests"
 alias ptcovh="pytest --cov-report html --cov=src tests"
+alias lab="jupyter lab"
+alias runR="$HOME/mambaforge/envs/r_env/bin/R"
+alias runRscript="$HOME/mambaforge/envs/r_env/bin/Rscript" # run with -e flag to send commands directly to R interpreter
 
 # Docker (fixes issue with docker plugin not including --rm flag)
 alias dr="docker container run --rm"
