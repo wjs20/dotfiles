@@ -16,46 +16,34 @@ ls.config.set_config {
 
 -- Django snippets
 ls.add_snippets("python", {
-    s("view_create", fmt([[
-        {}
-        def {object}_create(request, pk):
-            if request.method == "POST":
-                form = forms.{form}(request.POST)
-                if form.is_valid():
-                    object = form.save()
-                    return redirect("{app_label}:{object}_detail", pk=object.pk)
-                else:
-                    context = {{"form": form}}
-                    return TemplateResponse(request, "{template_name}", context)
-            else:
-                form = forms.{form}()
-                context = {{"form": form}}
-                return TemplateResponse(request, "{template_name}", context)
+    s("createview", fmt([[
+        def {object}_create(request):
+            form = {form}(request.POST or None)
+            if form.is_valid():
+                {object} = form.save()
+                return redirect({object})
+            context = {{"form": form}}
+            return render(request, "{template_name}", context=context)
     ]], {
         object = i(1, "object"),
         form = i(2, "form"),
-        app_label = i(3, "app_label"),
-        template_name = i(4, "template_name"),
-        i(0),
+        template_name = i(3, "template_name"),
     }, {
         repeat_duplicates = true
     })),
-    s("view_detail", fmt([[
-        {}
+    s("detailview", fmt([[
         def {object}_detail(request, pk):
-            {object} = get_object_or_404({model}.objects.all(), pk=pk)
+            {object} = get_object_or_404({model}, pk=pk)
             context = {{"{object}": {object}}}
-            return TemplateResponse(request, "{template_name}", context)
+            return render(request, "{template_name}", context)
     ]], {
         object = i(1, "object"),
         model = i(2, "model"),
         template_name = i(3, "template_name"),
-        i(0),
     }, {
         repeat_duplicates = true
     })),
-    s("view_list", fmt([[
-        {}
+    s("listview", fmt([[
         def {object}_list(request):
             {object}s = get_list_or_404({model}.objects.all(), pk=pk)
             context = {{"{object}": {object}}}
@@ -64,40 +52,30 @@ ls.add_snippets("python", {
         object = i(1, "object"),
         model = i(2, "model"),
         template_name = i(3, "template_name"),
-        i(0),
     }, {
         repeat_duplicates = true
     })),
-    s("view_update", fmt([[
-        {}
+    s("updateview", fmt([[
         def {object}_update(request, pk):
-            {object} = get_object_or_404({model}.objects.all(), pk=pk)
-            if request.method == 'POST':
-                form = forms.{form}(request.POST, instance={object})
-                if form.is_valid():
-                    {object} = form.save()
-                    return redirect("{app_label}:{object}_detail", pk={object}.pk)  # Redirect to the detail view of the updated object
-                else:
-                    context = {{'form': form}}
-                    return render(request, "{template_name}", context)
-            else:
-                form = forms.{form}(instance=object)
-                context = {{'form': form}}
-                return render(request, "{template_name}", context)
+            {object} = get_object_or_404({model}, pk=pk)
+            form = {form}(request.POST or None, initial={object})
+            if form.is_valid():
+                {object} = form.save()
+                return redirect({object})
+            context = {{"form": form}}
+            return render(request, "{template_name}", context=context)
     ]], {
         object = i(1, "object"),
         model = i(2, "model"),
         form = i(3, "form"),
-        app_label = i(4, "app_label"),
-        template_name = i(5, "template_name"),
-        i(0),
+        template_name = i(4, "template_name"),
     }, {
         repeat_duplicates = true
     })),
-    s("view_delete", fmt([[
+    s("deleteview", fmt([[
         {}
         def {object}_delete(request, pk):
-            {object} = get_object_or_404({model}.objects.all(), pk=pk)
+            {object} = get_object_or_404({model}, pk=pk)
             if request.method == "POST":
                 {object}.delete()
                 return redirect("{app_label}:{object}_list")  # Redirect to a list view after successful deletion
