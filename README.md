@@ -16,3 +16,7 @@ $ docker run --rm -it --mount typ=bind,source="$(pwd)",target=/home/developer/do
 fix python linting in-editor support so messages are not duplicated between ruff and pylint
 fix rust in-editor support (text being left behind after error fixed)
 improve python autoformatting so it doesn't lose your place
+
+
+# MISC
+Look at [Rewritten in Rust: Modern Alternatives of Command-Line Tools](https://zaiste.net/posts/shell-commands-rust/) for inspiration

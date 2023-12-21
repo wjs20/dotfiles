@@ -40,7 +40,12 @@ sudo apt update && sudo apt install -y --no-install-recommends \
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
-cargo install sd exa fd-find ripgrep
+cargo install \
+    sd \
+    exa \
+    fd-find \
+    ripgrep\
+    du-dust
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
 # Python

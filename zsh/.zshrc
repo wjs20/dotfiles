@@ -114,8 +114,12 @@ source $ZSH/oh-my-zsh.sh
 #
 alias acs="alias | grep"
 
+# rust cli
 alias cat="batcat"
 alias ls="exa"
+alias ps="procs"
+alias du="dust"
+
 alias ez="nvim ~/.zshrc"
 alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
@@ -207,6 +211,8 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
