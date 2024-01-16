@@ -89,14 +89,14 @@ cmp.setup({
 
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp', keyword_length = 5 },
+        { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
     }, {
         { name = 'buffer' },
-    })
+    }),
 })
 
 -- Set configuration for specific filetype.

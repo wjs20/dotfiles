@@ -45,7 +45,8 @@ cargo install \
     exa \
     fd-find \
     ripgrep\
-    du-dust
+    du-dust \
+    grex
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
 # Python
