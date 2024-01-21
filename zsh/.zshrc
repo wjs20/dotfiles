@@ -195,6 +195,14 @@ export PIPENV_VENV_IN_PROJECT=1
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
 
+# Add go to path if it exists on the system
+if [ -d "/usr/local/go/bin" ]; then
+    PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
+    export PATH
+fi
+
+PATH="$PATH:$HOME/go/bin"
+
 # add local tools to path if present
 if [[ -f $HOME/.local/paths ]]; then
     source $HOME/.local/paths
@@ -256,3 +264,5 @@ mkv() {
   echo >&2 "Created venv in '${venvpath}'"
   vrun "${name}"
 }
+
+eval "$(~/.rbenv/bin/rbenv init - zsh)"

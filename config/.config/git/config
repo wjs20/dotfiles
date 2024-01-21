@@ -31,3 +31,6 @@
 ;     autoCorrect = immediate
 [include]
     path = ~/.config/git/config.local
+[user]
+	email = johnsteele2009@live.co.uk
+	name = William Steele

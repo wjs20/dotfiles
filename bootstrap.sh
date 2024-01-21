@@ -48,6 +48,14 @@ cargo install \
     du-dust
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
+# Go
+wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+#sql language server
+go install github.com/sqls-server/sqls@latest
+
 # Python
 # install if installation cannot be found
 [[ -d "$HOME/.pyenv" ]] || curl https://pyenv.run | bash
