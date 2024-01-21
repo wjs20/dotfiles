@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
 
-    use "wbthomason/packer.nvim"
+    use { "wbthomason/packer.nvim" }
 
     use { "simrat39/symbols-outline.nvim" }
     use { "numToStr/Comment.nvim" }
@@ -25,7 +25,8 @@ return require("packer").startup(function(use)
     -- use { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} }
     use { "ellisonleao/gruvbox.nvim" }
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
-    use { "kylechui/nvim-surround", tag = "*"}
+    use { "tpope/vim-surround" }
+    -- use { "kylechui/nvim-surround", tag = "*"}
     use { "windwp/nvim-autopairs" }
     use { "norcalli/nvim-colorizer.lua" }
 
@@ -42,9 +43,9 @@ return require("packer").startup(function(use)
 
     -- treesitter
     use {
-        "nvim-treesitter/nvim-treesitter",
+        'nvim-treesitter/nvim-treesitter',
         run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
     }

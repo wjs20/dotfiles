@@ -124,6 +124,11 @@ alias ez="nvim ~/.zshrc"
 alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
 alias fc="fc -e vim"
+
+# Python aliases
+alias pipall="python -m pip install -rrequirements.txt"
+alias pipdev="python -m pip install -rrequirements.dev"
+alias piped="python -m pip install -e ."
 alias whichpy="pyenv which python"
 alias ma="mamba activate"
 alias pm="python manage.py"
@@ -136,6 +141,8 @@ alias pt="pytest"
 alias ptcov="pytest --cov-report term --cov=src tests"
 alias ptcovh="pytest --cov-report html --cov=src tests"
 alias lab="jupyter lab"
+
+# R aliases
 alias runR="$HOME/mambaforge/envs/r_env/bin/R"
 alias runRscript="$HOME/mambaforge/envs/r_env/bin/Rscript" # run with -e flag to send commands directly to R interpreter
 
@@ -201,7 +208,10 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH
 fi
 
-PATH="$PATH:$HOME/go/bin"
+# Setup ruby if it exists
+if [ -d "$HOME/.rbenv/bin/rbenv" ]; then
+    eval "$(~/.rbenv/bin/rbenv init - zsh)"
+fi
 
 # add local tools to path if present
 if [[ -f $HOME/.local/paths ]]; then
@@ -255,6 +265,10 @@ extract () {
    fi
 }
 
+download () {
+    http --download $1
+}
+
 # reimplementation of python plugin's function to use virtualenv instead of venv
 mkv() {
   local name="${1:-venv}"
@@ -265,4 +279,7 @@ mkv() {
   vrun "${name}"
 }
 
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+space2csv() {
+    # turns space seperated file into comma separated file
+    awk '{$1=$1}1' OFS=, $1
+}
