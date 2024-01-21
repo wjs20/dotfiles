@@ -283,3 +283,12 @@ space2csv() {
     # turns space seperated file into comma separated file
     awk '{$1=$1}1' OFS=, $1
 }
+
+ls-servers() {
+    local file="$HOME/servers.txt"
+    if [[ -f "$file" ]]; then
+        cat "$file"
+    else
+        echo "The file $file does not exist and needs to be created."
+    fi
+}
