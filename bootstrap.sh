@@ -24,6 +24,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
+    parallel \
     python3-pip \
     python3-venv \
     git \
@@ -35,7 +36,6 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     bat \
     stow \
     shellcheck \
-
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
