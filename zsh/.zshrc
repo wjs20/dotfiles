@@ -123,6 +123,7 @@ alias ps="procs"
 alias du="dust"
 
 alias ez="nvim ~/.zshrc"
+alias es="nvim ~/.config/nvim/snippets"
 alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
 alias fc="fc -e vim"
