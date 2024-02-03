@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+eval `ssh-agent -s` &>/dev/null
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
