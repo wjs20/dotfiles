@@ -43,3 +43,6 @@ o.list = true
 o.listchars:append "eol:↵"
 
 o.clipboard = "unnamedplus"
+
+o.splitright = true
+o.splitbelow = true
