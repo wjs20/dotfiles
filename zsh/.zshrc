@@ -294,3 +294,7 @@ ls-servers() {
         echo "The file $file does not exist and needs to be created."
     fi
 }
+
+pdb-tools() {
+    ls /home/ws/.local/bin | grep pdb_ | cut -d" " -f1
+}
