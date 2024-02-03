@@ -1,11 +1,32 @@
 local ls = require("luasnip")
-local i = ls.insert_node
 local s = ls.snippet
+-- local sn = ls.snippet_node
+-- local isn = ls.indent_snippet_node
 local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+-- local r = ls.restore_node
+-- local events = require("luasnip.util.events")
+-- local ai = require("luasnip.nodes.absolute_indexer")
+-- local extras = require("luasnip.extras")
+-- local l = extras.lambda
+-- local rep = extras.rep
+-- local p = extras.partial
+-- local m = extras.match
+-- local n = extras.nonempty
+-- local dl = extras.dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
+-- local fmta = require("luasnip.extras.fmt").fmta
+-- local conds = require("luasnip.extras.expand_conditions")
+-- local postfix = require("luasnip.extras.postfix").postfix
+-- local types = require("luasnip.util.types")
+-- local parse = require("luasnip.util.parser").parse_snippet
+-- local ms = ls.multi_snippet
+-- local k = require("luasnip.nodes.key_indexer").new_key
 
-ls.filetype_extend("python", {"django"})
-require("luasnip.loaders.from_vscode").lazy_load()
+
 
 
 ls.config.set_config {
@@ -13,85 +34,6 @@ ls.config.set_config {
     updateevents = "TextChanged,TextChangedI"
 }
 
-
--- Django snippets
-ls.add_snippets("python", {
-    s("createview", fmt([[
-        def {object}_create(request):
-            form = {form}(request.POST or None)
-            if form.is_valid():
-                {object} = form.save()
-                return redirect({object})
-            context = {{"form": form}}
-            return render(request, "{template_name}", context=context)
-    ]], {
-        object = i(1, "object"),
-        form = i(2, "form"),
-        template_name = i(3, "template_name"),
-    }, {
-        repeat_duplicates = true
-    })),
-    s("detailview", fmt([[
-        def {object}_detail(request, pk):
-            {object} = get_object_or_404({model}, pk=pk)
-            context = {{"{object}": {object}}}
-            return render(request, "{template_name}", context)
-    ]], {
-        object = i(1, "object"),
-        model = i(2, "model"),
-        template_name = i(3, "template_name"),
-    }, {
-        repeat_duplicates = true
-    })),
-    s("listview", fmt([[
-        def {object}_list(request):
-            {object}s = get_list_or_404({model}.objects.all(), pk=pk)
-            context = {{"{object}": {object}}}
-            return TemplateResponse(request, "{template_name}", context)
-    ]], {
-        object = i(1, "object"),
-        model = i(2, "model"),
-        template_name = i(3, "template_name"),
-    }, {
-        repeat_duplicates = true
-    })),
-    s("updateview", fmt([[
-        def {object}_update(request, pk):
-            {object} = get_object_or_404({model}, pk=pk)
-            form = {form}(request.POST or None, initial={object})
-            if form.is_valid():
-                {object} = form.save()
-                return redirect({object})
-            context = {{"form": form}}
-            return render(request, "{template_name}", context=context)
-    ]], {
-        object = i(1, "object"),
-        model = i(2, "model"),
-        form = i(3, "form"),
-        template_name = i(4, "template_name"),
-    }, {
-        repeat_duplicates = true
-    })),
-    s("deleteview", fmt([[
-        {}
-        def {object}_delete(request, pk):
-            {object} = get_object_or_404({model}, pk=pk)
-            if request.method == "POST":
-                {object}.delete()
-                return redirect("{app_label}:{object}_list")  # Redirect to a list view after successful deletion
-
-            context = {{"{object}": object}}
-            return render(request, "{template_name}", context)
-    ]], {
-        object = i(1, "object"),
-        model = i(2, "model"),
-        app_label = i(3, "app_label"),
-        template_name = i(4, "template_name"),
-        i(0),
-    }, {
-        repeat_duplicates = true
-    })),
-    s("fl", { t("self.client.force_login(self.user)") }),
-    s("cg", { t("response = self.client.get(self.url)") }),
-    s("cp", { t("response = self.client.post(self.url, data=data)") })
-})
+ls.filetype_extend("python", {"django"})
+require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
