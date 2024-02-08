@@ -1,22 +1,26 @@
 return {
-    s("djtest", fmt([[
-        class {test_name}TestCase(TestCase):
-            @classmethod
-            def setUpTestData(cls):
-                """setUpTestData: Run once to set up non-modified data for all class methods."""
-                {test_class_setup}
+    s("tcview", fmt([[
+    class {}Test(TestCase):
+        @classmethod
+        def setUpTestData(cls):
+            # Create objects
+            {}
 
-            def setUp(self):
-                """setUp: Run once for every test method to set up clean data."""
-                {test_method_setup}
+        def setUp(self):
+            self.user = UserFactory()
+            self.client.force_login(self.user)
+            {}
 
-            def test_one_plus_one_equals_two(self):
-                """Method: test_one_plus_one_equals_two."""
-                {}self.assertEqual(1 + 1, 2)
+        def test_view_url_accessible_by_name(self):
+            response = self.client.get(reverse('{}'))
+            self.assertEqual(response.status_code, 200)
+            {}
+
     ]], {
+       i(1),
+       i(2),
+       i(3),
+       i(4),
        i(0),
-       test_name = i(1, "test_name"),
-       test_class_setup = i(2, "pass"),
-       test_method_setup = i(3, "pass"),
     })),
 }
