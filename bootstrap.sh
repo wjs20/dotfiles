@@ -47,7 +47,7 @@ cargo install \
     ripgrep\
     du-dust \
     grex \
-    delta
+    git-delta
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
 # Go
