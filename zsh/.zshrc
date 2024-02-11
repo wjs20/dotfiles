@@ -212,7 +212,7 @@ if [ -d "/usr/local/go/bin" ]; then
 fi
 
 # Setup ruby if it exists
-if [ -d "$HOME/.rbenv/bin/rbenv" ]; then
+if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
     eval "$(~/.rbenv/bin/rbenv init - zsh)"
 fi
 
@@ -301,4 +301,8 @@ ls-servers() {
 
 pdb-tools() {
     ls /home/ws/.local/bin | grep pdb_ | cut -d" " -f1
+}
+
+today() {
+    date "+%Y-%m-%d"
 }
