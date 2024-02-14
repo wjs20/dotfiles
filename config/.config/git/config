@@ -34,3 +34,5 @@
 [user]
 	email = johnsteele2009@live.co.uk
 	name = William Steele
+[rerere]
+	enabled = true
