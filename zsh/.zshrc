@@ -248,6 +248,8 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 # azure personal access token
 [ -f ~/.env.azure ] && source ~/.env.azure
 
+[ -f ~/.openai-api-key ] && source ~/.env.azure
+
 # generalized extract function as suggested by Mendel Cooper in "Advanced Bash Scripting Guide"
 extract () {
    if [ -f $1 ] ; then
