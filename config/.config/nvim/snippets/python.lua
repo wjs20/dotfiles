@@ -23,4 +23,12 @@ return {
        i(4),
        i(0),
     })),
+    s("nullcheck", fmt([[
+    if {} is None:
+        {}
+    ]], {
+        i(1),
+        i(0)
+    }))
+
 }
