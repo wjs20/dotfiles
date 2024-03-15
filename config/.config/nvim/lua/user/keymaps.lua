@@ -33,7 +33,3 @@ map('n', '<leader>so', vim.cmd.SymbolsOutline)
 
 -- convert html files to htmldjango filetype (for syntax highlighting)
 map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
-
--- cycle through buffers
-map('n', '<leader>n', '<cmd>:bnext<CR>')
-map('n', '<leader>N', '<cmd>:bprev<CR>')
