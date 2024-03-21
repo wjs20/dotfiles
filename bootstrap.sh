@@ -91,5 +91,5 @@ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM
 
 rm .zshrc
 pushd dotfiles
-stow {config,ignore,tmux,vim,zsh}
+stow {config,ignore,tmux,vim,zsh,tools}
 popd

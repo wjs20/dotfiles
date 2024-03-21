@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+DIR=$1
+if [[ ! -d $DIR ]]; then
+   echo $DIR does not exist
+   exit 1
+fi
+SELECTED=$(fd -d 1 -t d . $DIR | fzf)
+if [[ -z "$SELECTED" ]]; then
+    exit;
+fi
+SESSION_NAME="$(basename -- $SELECTED)"
+tmux new-session -s $SESSION_NAME -d -c "$(realpath -s $SELECTED)"
+tmux attach -t $SESSION_NAME
