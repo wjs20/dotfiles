@@ -78,6 +78,7 @@ pipx install black
 pipx install isort
 pipx install httpie
 pipx install csvkit
+pipx install pdb-tools
 
 # Neovim
 wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
