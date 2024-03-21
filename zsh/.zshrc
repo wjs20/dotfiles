@@ -144,6 +144,7 @@ alias pt="pytest"
 alias ptcov="pytest --cov-report term --cov=src tests"
 alias ptcovh="pytest --cov-report html --cov=src tests"
 alias lab="jupyter lab"
+alias sn="snakemake"
 
 # R aliases
 alias R="$HOME/mambaforge/envs/r-environment/bin/R"
