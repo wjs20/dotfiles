@@ -146,8 +146,8 @@ alias ptcovh="pytest --cov-report html --cov=src tests"
 alias lab="jupyter lab"
 
 # R aliases
-alias runR="$HOME/mambaforge/envs/r_env/bin/R"
-alias runRscript="$HOME/mambaforge/envs/r_env/bin/Rscript" # run with -e flag to send commands directly to R interpreter
+alias R="$HOME/mambaforge/envs/r-environment/bin/R"
+alias Rscript="$HOME/mambaforge/envs/r-environment/bin/Rscript" # run with -e flag to send commands directly to R interpreter
 
 # Docker (fixes issue with docker plugin not including --rm flag)
 alias dr="docker container run --rm"
