@@ -80,6 +80,7 @@ plugins=(
     python
     z
     zsh-syntax-highlighting
+    zsh-autosuggestions
     you-should-use
 )
 
