@@ -56,3 +56,7 @@ pdb-tools() {
 today() {
     date "+%Y-%m-%d"
 }
+
+sm-dag() {
+    snakemake --dag "${1:-all}" | dot -Tsvg
+}

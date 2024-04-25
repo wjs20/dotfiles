@@ -249,6 +249,8 @@ export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --L
 
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
+export SNAKEMAKE_PROFILE=myprofile
+
 # azure personal access token
 [ -f ~/.env.azure ] && source ~/.env.azure
 
