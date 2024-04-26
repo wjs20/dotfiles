@@ -49,10 +49,6 @@ ls-servers() {
     fi
 }
 
-pdb-tools() {
-    ls /home/ws/.local/bin | grep pdb_ | cut -d" " -f1
-}
-
 today() {
     date "+%Y-%m-%d"
 }
