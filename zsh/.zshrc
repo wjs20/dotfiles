@@ -183,6 +183,8 @@ alias tardown="tar -zxf"
 # show your $PATH in prettier format
 alias showpath='echo $PATH | tr ":" "\n" | nl'
 
+alias today='date "+%Y-%m-%d"'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ws/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -204,7 +206,8 @@ fi
 
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
 
 # Add go to path if it exists on the system
@@ -222,8 +225,6 @@ fi
 if [[ -f $HOME/.local/paths ]]; then
     source $HOME/.local/paths
 fi
-export PATH="$PATH:$HOME/scripts"
-source $HOME/functions.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -248,8 +249,6 @@ eval "$(pyenv virtualenv-init -)"
 export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS --window=-4'
 
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
-
-export SNAKEMAKE_PROFILE=myprofile
 
 # azure personal access token
 [ -f ~/.env.azure ] && source ~/.env.azure
