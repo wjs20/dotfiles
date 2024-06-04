@@ -184,6 +184,7 @@ alias tardown="tar -zxf"
 alias showpath='echo $PATH | tr ":" "\n" | nl'
 
 alias today='date "+%Y-%m-%d"'
+alias fd-hidden='fd --type f --hidden --exclude .git'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
