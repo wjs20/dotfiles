@@ -3,3 +3,4 @@ config/.config/wslu/
 config/.config/git/config.local
 config/.config/io.datasette.llm
 config/.config/htop/
+config/.config/sqls/

@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
     -- use { "kylechui/nvim-surround", tag = "*"}
     use { "windwp/nvim-autopairs" }
     use { "norcalli/nvim-colorizer.lua" }
+    use { "nanotee/sqls.nvim" }
 
     -- Configurations for Nvim LSP
     use { "neovim/nvim-lspconfig" }
