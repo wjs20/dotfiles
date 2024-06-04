@@ -1,5 +1,8 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
+
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
     local opts = { noremap=true, silent=true }
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -17,7 +20,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
-    -- local client = vim.lsp.get_client_by_id(args.data.client_id)
     -- if client.supports_method('textDocument/implementation') then
     --   -- Create a keymap for vim.lsp.buf.implementation
     -- end
@@ -128,7 +130,6 @@ lspconfig.pyright.setup{
 
 lspconfig.rust_analyzer.setup{
     capabilities = capabilities,
-    -- Server-specific settings...
     settings = {
         ["rust-analyzer"] = {
             imports = {
