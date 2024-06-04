@@ -1,56 +1,42 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local opts = { noremap=true, silent=true }
+    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- if client.supports_method('textDocument/implementation') then
+    --   -- Create a keymap for vim.lsp.buf.implementation
+    -- end
+  end,
+})
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-end
-
-local ok, _ = pcall(require, 'cmp')
-if not ok then
-  print('colourscheme could not be loaded')
-  return
-else
-
-end
-
-local cmp = require'cmp'
 local luasnip = require("luasnip")
+local cmp = require'cmp'
+
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  return col == 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 cmp.setup({
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
     window = {
@@ -90,12 +76,8 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp', keyword_length = 5},
-        -- { name = 'vsnip' }, -- For vsnip users.
-        { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-    }, {
-        { name = 'buffer', keyword_length = 5},
+        { name = 'luasnip' },
+        { name = 'buffer', keyword_length = 5}
     }),
 })
 
@@ -128,8 +110,9 @@ cmp.setup.cmdline(':', {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig')['ruff_lsp'].setup{
-  on_attach = on_attach,
+local lspconfig = require('lspconfig')
+
+lspconfig.ruff_lsp.setup{
   capabilities = capabilities,
   init_options = {
     settings = {
@@ -139,13 +122,11 @@ require('lspconfig')['ruff_lsp'].setup{
   }
 }
 
-require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
+lspconfig.pyright.setup{
     capabilities = capabilities
 }
 
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
+lspconfig.rust_analyzer.setup{
     capabilities = capabilities,
     -- Server-specific settings...
     settings = {
@@ -168,8 +149,7 @@ require('lspconfig')['rust_analyzer'].setup{
     }
 }
 
-require('lspconfig')['emmet_ls'].setup{
-    on_attach = on_attach,
+lspconfig.emmet_ls.setup{
     capabilities = capabilities,
     filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
     init_options = {
@@ -182,11 +162,10 @@ require('lspconfig')['emmet_ls'].setup{
     }
 }
 
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
+lspconfig.tsserver.setup{
     capabilities = capabilities,
 }
 
-require'lspconfig'.r_language_server.setup{}
+lspconfig.r_language_server.setup{}
 
 lspconfig.sqls.setup{}
