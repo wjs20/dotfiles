@@ -255,3 +255,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 [ -f ~/.env.azure ] && source ~/.env.azure
 
 [ -f ~/.openai-api-key ] && source ~/.env.azure
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

@@ -95,3 +95,5 @@ rm .zshrc
 pushd dotfiles
 stow {config,ignore,tmux,vim,zsh,tools}
 popd
+
+curl -sS https://webi.sh/gh | sh
