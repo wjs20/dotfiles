@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#
+#
+cut -b 22 | sort -u
