@@ -5,13 +5,14 @@ map('n', '<leader>j', '<cmd>wincmd j<CR>')
 map('n', '<leader>k', '<cmd>wincmd k<CR>')
 map('n', '<leader>l', '<cmd>wincmd l<CR>')
 map('n', '<leader>o', '<cmd>wincmd o<CR>')
+map('n', '<leader>z', '<cmd>wincmd z<CR>')
 map('n', '<leader>\\', '<cmd>wincmd |<CR>')
 map('n', '<leader>=', '<cmd>wincmd =<CR>')
 map('n', '<leader>ff', '<cmd>Files<CR>')
 map('n', '<leader>fg', '<cmd>GFiles<CR>')
 
 -- open netrw
-map('n', '<leader>pv', '<cmd>Ex<CR>')
+map('n', '<leader>ev', '<cmd>Vexplore<CR>')
 
 -- make a file executable
 map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
