@@ -8,7 +8,7 @@ $ ./dotfiles/bootstrap.sh
 To test bootstrap script in clean environment, use provided Dockerfile (password developer)
 ```
 $ docker build -t my_dev_env .
-$ docker run --rm -it --mount typ=bind,source="$(pwd)",target=/home/developer/dotfiles my_dev_env
+$ docker run --rm -it --mount type=bind,source="$(pwd)",target=/home/developer/dotfiles my_dev_env
 (docker) $ ./dotfiles/bootstrap.sh
 ```
 

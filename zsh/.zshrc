@@ -209,23 +209,14 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/.local/nvim-linux64/bin:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/nvim-linux64/bin"
 
-# Add go to path if it exists on the system
-if [ -d "/usr/local/go/bin" ]; then
-    PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
-    export PATH
-fi
+[[ -d "/usr/local/go/bin" ]] && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 
-# Setup ruby if it exists
-if [ -e "$HOME/.rbenv/bin/rbenv" ]; then
-    eval "$(~/.rbenv/bin/rbenv init - zsh)"
-fi
+[[ -e "$HOME/.rbenv/bin/rbenv" ]] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # add local tools to path
-if [[ -f $HOME/.local/paths ]]; then
-    source $HOME/.local/paths
-fi
+[[ -f $HOME/.local/paths ]] && source $HOME/.local/paths
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
