@@ -209,7 +209,6 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/.local/nvim-linux64/bin"
 
 [[ -d "/usr/local/go/bin" ]] && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 
