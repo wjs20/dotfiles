@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+NEOVIM_RELEASES_URL="https://github.com/neovim/neovim/releases/latest"
+LATEST_RELEASE_URL=$(curl -sL -o /dev/null -w %{url_effective} $NEOVIM_RELEASES_URL)
+LATEST_VERSION=$(echo $LATEST_RELEASE_URL | grep -oP 'tag/\K.*')
+NEOVIM_DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/$LATEST_VERSION/nvim-linux64.tar.gz"
+echo $NEOVIM_DOWNLOAD_URL
+curl -LO $NEOVIM_DOWNLOAD_URL
+tar -xzf nvim-linux64.tar.gz
+rm -rf $HOME/.local/opt/nvim-linux64
+mv nvim-linux64 $HOME/.local/opt
+[[ -e $HOME/.local/bin/nvim ]] || ln -s $HOME/.local/opt/nvim-linux64/bin/nvim $HOME/.local/bin/nvim
+rm nvim-linux64.tar.gz
+echo "Neovim $LATEST_VERSION installed successfully."
