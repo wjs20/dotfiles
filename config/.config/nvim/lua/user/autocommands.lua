@@ -52,9 +52,19 @@ autocmd({ 'BufWritePre' }, {
 
 local skeletons = augroup('Skeletons', { clear = true })
 autocmd({ 'BufNewFile' }, {
-    command = "0r ~/skeletons/bash.sh",
+    command = "0r ~/.skeletons/bash.sh",
     group = skeletons,
     pattern = "*.sh"
+})
+autocmd({ 'BufNewFile' }, {
+    command = "0r ~/.skeletons/pyproject.toml",
+    group = skeletons,
+    pattern = "pyproject.toml"
+})
+autocmd({ 'BufNewFile' }, {
+    command = "0r ~/.skeletons/environment.yml",
+    group = skeletons,
+    pattern = "environment.yml"
 })
 
 local css_omnicomplete = augroup('CSSOmnicomplete', { clear = true })
