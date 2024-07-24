@@ -87,27 +87,29 @@ go install github.com/sqls-server/sqls@latest
 # # add pyenv to path if not already on path
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
-# python3 -m pip install --user --no-warn-script-location pipx
-# # if pipx isn't on path then add it
-# type -p pipx 1>/dev/null || python3 -m pipx ensurepath
-#
-# pydevtools=(
-#     black
-#     csvkit
-#     httpie
-#     isort
-#     pdb-tools
-#     pipenv
-#     pytest
-#     tox
-#     virtualenv
-#     build
-# )
-#
-# for pydevtool in "${pydevtools[@]}"
-# do
-#     pipx install $pydevtool
-# done
+pyenv install 3.12.4
+pyenv global 3.12.4
+python -m pip install --user pipx
+# if pipx isn't on path then add it
+type -p pipx 1>/dev/null || python3 -m pipx ensurepath
+
+pydevtools=(
+    black
+    csvkit
+    httpie
+    isort
+    pdb-tools
+    pipenv
+    pytest
+    tox
+    virtualenv
+    build
+)
+
+for pydevtool in "${pydevtools[@]}"
+do
+    pipx install $pydevtool
+done
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
