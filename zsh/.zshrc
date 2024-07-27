@@ -214,9 +214,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 [[ -e "$HOME/.rbenv/bin/rbenv" ]] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
-# add local tools to path
-[[ -f $HOME/.local/paths ]] && source $HOME/.local/paths
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
