@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+#
+#
+set -euo pipefail
+
+REPO_NAME=$(git remote get-url origin | sd '.*:|\.git' '')
+
+echo "The repository name is detected as: $REPO_NAME"
+read -p "Is this correct? (y/n) " CONFIRM
+
+if [[ $CONFIRM != [yY] ]]; then
+    echo "Aborting script."
+    exit 1
+fi
+
+gh api \
+    --method POST \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    /repos/$REPO_NAME/forks \
+    -f "default_branch_only=true"
