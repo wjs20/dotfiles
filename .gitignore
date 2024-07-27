@@ -1,6 +1,8 @@
 config/.config/nvim/plugin/
 config/.config/wslu/
 config/.config/git/config.local
+config/.config/git/attributes
+config/.config/gh
 config/.config/io.datasette.llm
 config/.config/htop/
 config/.config/sqls/
