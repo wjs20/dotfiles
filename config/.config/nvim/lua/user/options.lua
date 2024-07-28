@@ -1,4 +1,5 @@
 local o = vim.opt
+local g = vim.g
 
 o.scrolloff = 10
 
@@ -46,3 +47,8 @@ o.clipboard = "unnamedplus"
 
 o.splitright = true
 o.splitbelow = true
+
+g.netrw_banner = 0
+g.netrw_preview   = 1
+g.netrw_liststyle = 3
+g.netrw_winsize   = 30
