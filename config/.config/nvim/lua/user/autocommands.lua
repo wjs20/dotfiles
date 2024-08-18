@@ -66,6 +66,16 @@ autocmd({ 'BufNewFile' }, {
     group = skeletons,
     pattern = "environment.yml"
 })
+autocmd({ 'BufNewFile' }, {
+    command = "0r ~/.skeletons/README_template.md",
+    group = skeletons,
+    pattern = "README.md"
+})
+autocmd({ 'BufNewFile' }, {
+    command = "0r ~/.skeletons/LICENSE.txt",
+    group = skeletons,
+    pattern = "LICENSE.txt"
+})
 
 local css_omnicomplete = augroup('CSSOmnicomplete', { clear = true })
 autocmd({ 'BufNewFile' }, {
