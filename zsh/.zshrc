@@ -82,6 +82,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
     you-should-use
+    ssh
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,7 +116,8 @@ eval `ssh-agent -s` &>/dev/null
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias acs="alias | grep"
+
+alias rmd="rm -rf"
 
 # rust cli
 alias cat="batcat"
