@@ -104,6 +104,9 @@ pydevtools=(
     tox
     virtualenv
     build
+    datasette
+    llm
+    files-to-prompt
 )
 
 for pydevtool in "${pydevtools[@]}"
