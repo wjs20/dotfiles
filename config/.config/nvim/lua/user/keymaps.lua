@@ -23,14 +23,9 @@ map('n', 'gf', '<cmd>e <cfile><CR>')
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
--- toggle git window
-map('n', '<leader>gw', vim.cmd.Git)
-
--- toggle undotree
-map('n', '<leader>ut', vim.cmd.UndotreeToggle)
-
--- toggle symbols outline
-map('n', '<leader>so', vim.cmd.SymbolsOutline)
+map('n', '<F2>', vim.cmd.UndotreeToggle)
+map('n', '<F3>', vim.cmd.Git)
+map('n', '<F4>', vim.cmd.SymbolsOutline)
 
 -- convert html files to htmldjango filetype (for syntax highlighting)
 map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
