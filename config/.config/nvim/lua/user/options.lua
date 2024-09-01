@@ -43,7 +43,7 @@ o.updatetime = 50
 o.list = true
 o.listchars = {eol = "↵"} --, space = "·"}
 
-o.clipboard = "unnamedplus"
+-- o.clipboard = "unnamedplus"
 
 o.splitright = true
 o.splitbelow = true
