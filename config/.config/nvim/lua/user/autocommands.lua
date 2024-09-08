@@ -25,31 +25,6 @@ autocmd({ 'BufWritePre' }, {
 })
 
 
-local python = augroup('Format', { clear = true })
-autocmd({ 'BufWritePre' }, {
-    callback = function()
-        vim.cmd([[
-            normal ma
-            %!isort -
-            silent! normal `a
-        ]])
-    end,
-    group = python,
-    pattern = '*.py'
-})
-autocmd({ 'BufWritePre' }, {
-    callback = function()
-        vim.cmd([[
-            normal ma
-            %!black - -q
-            silent! normal `a
-        ]])
-    end,
-    group = python,
-    pattern = '*.py'
-})
-
-
 local skeletons = augroup('Skeletons', { clear = true })
 autocmd({ 'BufNewFile' }, {
     command = "0r ~/.skeletons/bash.sh",
