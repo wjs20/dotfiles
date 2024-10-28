@@ -194,6 +194,11 @@ alias showpath='echo $PATH | tr ":" "\n" | nl'
 alias today='date "+%Y-%m-%d"'
 alias fd-hidden='fd --type f --hidden --exclude .git'
 
+
+alias clip='xclip -selection c'
+
+alias checkcsv='csvlook | less'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ws/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -246,10 +251,8 @@ export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --L
 
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
-# azure personal access token
-[ -f ~/.env.azure ] && source ~/.env.azure
-
-[ -f ~/.openai-api-key ] && source ~/.env.azure
+source $HOME/.local/startup
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+export SQLALCHEMY_SILENCE_UBER_WARNING=1

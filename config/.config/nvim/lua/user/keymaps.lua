@@ -29,3 +29,6 @@ map('n', '<F4>', vim.cmd.SymbolsOutline)
 
 -- convert html files to htmldjango filetype (for syntax highlighting)
 map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
+
+-- select last pasted text
+map('n', 'gp', '`[v`]')
