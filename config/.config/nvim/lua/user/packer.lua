@@ -15,7 +15,6 @@ return require("packer").startup(function(use)
 
     use { "wbthomason/packer.nvim" }
 
-    use { "simrat39/symbols-outline.nvim" }
     use { "numToStr/Comment.nvim" }
     use { "lukas-reineke/indent-blankline.nvim" }
     use { "tpope/vim-fugitive" }
@@ -26,7 +25,13 @@ return require("packer").startup(function(use)
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
     use { "tpope/vim-surround" }
     use { "tpope/vim-unimpaired" }
-    use { "windwp/nvim-autopairs" }
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    }
     use { "norcalli/nvim-colorizer.lua" }
     use { "tpope/vim-dadbod" }
 
