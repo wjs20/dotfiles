@@ -35,5 +35,4 @@ map('n', 'gp', '`[v`]')
 -- set foldmethod to indent
 map('n', '<leader>fi', '<cmd>set foldmethod=indent<CR>')
 
-
 map('t', '<Esc>', '<C-\\><C-n>')
