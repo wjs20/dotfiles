@@ -15,7 +15,6 @@ return require("packer").startup(function(use)
 
     use { "wbthomason/packer.nvim" }
 
-    use { "numToStr/Comment.nvim" }
     use { "lukas-reineke/indent-blankline.nvim" }
     use { "tpope/vim-fugitive" }
     use { "mbbill/undotree" }
