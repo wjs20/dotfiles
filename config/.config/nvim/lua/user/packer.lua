@@ -24,15 +24,8 @@ return require("packer").startup(function(use)
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
     use { "tpope/vim-surround" }
     use { "tpope/vim-unimpaired" }
-    use {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup {}
-        end
-    }
+    use { "jiangmiao/auto-pairs" }
     use { "norcalli/nvim-colorizer.lua" }
-    use { "tpope/vim-dadbod" }
 
     -- Configurations for Nvim LSP
     use { "neovim/nvim-lspconfig" }
