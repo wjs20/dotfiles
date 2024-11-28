@@ -5,7 +5,7 @@ if not ok then
 end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "lua", "rust", "bash" },
+  ensure_installed = { "python", "lua", "rust", "bash" , "html", "javascript"},
   sync_install = false,
   auto_install = false,
   highlight = {
