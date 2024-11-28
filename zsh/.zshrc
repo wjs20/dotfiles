@@ -196,6 +196,7 @@ alias fd-hidden='fd --type f --hidden --exclude .git'
 
 
 alias clip='xclip -selection c'
+alias clop='xclip -selection clipboard -o'
 
 alias checkcsv='csvlook | less'
 
