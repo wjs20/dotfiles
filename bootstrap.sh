@@ -69,6 +69,9 @@ langs=(
     zig
 )
 
+# replacement from ps, not available from webi
+cargo install procs
+
 for lang in "${langs[@]}"
 do
     curl -sS https://webi.sh/$lang | sh && source ~/.config/envman/PATH.env
