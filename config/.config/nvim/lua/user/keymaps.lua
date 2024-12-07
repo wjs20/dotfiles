@@ -10,8 +10,6 @@ map('n', '<leader>o', '<cmd>wincmd o<CR>')
 map('n', '<leader>z', '<cmd>wincmd z<CR>')
 map('n', '<leader>|', '<cmd>wincmd |<CR>')
 map('n', '<leader>=', '<cmd>wincmd =<CR>')
-map('n', '<leader>ff', '<cmd>Files<CR>')
-map('n', '<leader>fg', '<cmd>GFiles<CR>')
 
 -- open netrw
 map('n', '<leader>ev', '<cmd>Vexplore<CR>')
