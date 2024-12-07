@@ -1,5 +1,7 @@
 vim.g.mapleader = ' '
 local map = vim.keymap.set
+
+-- window commands
 map('n', '<leader>h', '<cmd>wincmd h<CR>')
 map('n', '<leader>j', '<cmd>wincmd j<CR>')
 map('n', '<leader>k', '<cmd>wincmd k<CR>')
@@ -35,4 +37,5 @@ map('n', 'gp', '`[v`]')
 -- set foldmethod to indent
 map('n', '<leader>fi', '<cmd>set foldmethod=indent<CR>')
 
+-- use Esc to switch to normal mode in vim terminal
 map('t', '<Esc>', '<C-\\><C-n>')
