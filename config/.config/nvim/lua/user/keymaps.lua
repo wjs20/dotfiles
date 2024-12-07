@@ -32,8 +32,5 @@ map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
 -- select last pasted text
 map('n', 'gp', '`[v`]')
 
--- set foldmethod to indent
-map('n', '<leader>fi', '<cmd>set foldmethod=indent<CR>')
-
 -- use Esc to switch to normal mode in vim terminal
 map('t', '<Esc>', '<C-\\><C-n>')
