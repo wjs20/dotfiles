@@ -41,7 +41,7 @@ o.filetype = 'on'
 o.updatetime = 50
 
 o.list = true
-o.listchars = {eol = "↵"} --, space = "·"}
+o.listchars = {eol = "↵", space = "·"} --, space = "·"}
 
 -- o.clipboard = "unnamedplus"
 
