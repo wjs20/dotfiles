@@ -34,3 +34,6 @@ map('n', 'gp', '`[v`]')
 
 -- use Esc to switch to normal mode in vim terminal
 map('t', '<Esc>', '<C-\\><C-n>')
+
+-- yanks to system clipbaord
+map('v', 'Y', '"+y')
