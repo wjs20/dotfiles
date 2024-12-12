@@ -23,7 +23,7 @@ map('n', 'gf', '<cmd>e <cfile><CR>')
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
-map('n', '<F2>', vim.cmd.UndotreeToggle)
+map('n', '<F2>', '<cmd>UndoTreeToggle<CR>')
 map('n', '<leader>g', '<cmd>vertical topleft Git<CR>')
 
 -- convert html files to htmldjango filetype (for syntax highlighting)
