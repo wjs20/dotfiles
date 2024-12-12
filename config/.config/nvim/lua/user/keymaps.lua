@@ -24,7 +24,7 @@ map('n', 'gf', '<cmd>e <cfile><CR>')
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
 map('n', '<F2>', vim.cmd.UndotreeToggle)
-map('n', '<F3>', vim.cmd.Git)
+map('n', '<leader>g', '<cmd>vertical topleft Git<CR>')
 
 -- convert html files to htmldjango filetype (for syntax highlighting)
 map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
