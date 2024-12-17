@@ -58,3 +58,12 @@ autocmd({ 'BufNewFile' }, {
     group = css_omnicomplete,
     pattern = "*.css"
 })
+
+local terminal = augroup('terminal', { clear = true })
+autocmd({ 'TermOpen' }, {
+    group = terminal,
+    callback = function()
+        vim.opt_local.relativenumber = false
+        vim.opt_local.number = false
+    end
+})
