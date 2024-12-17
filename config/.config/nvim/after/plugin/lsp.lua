@@ -12,14 +12,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
+        vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-        vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set('n', '<space>ds', vim.lsp.buf.document_symbol, bufopts)
 
         -- if client.supports_method('textDocument/implementation') then
         --   -- Create a keymap for vim.lsp.buf.implementation
