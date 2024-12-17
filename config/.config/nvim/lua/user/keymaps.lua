@@ -17,9 +17,6 @@ map('n', '<leader>ev', '<cmd>Vexplore<CR>')
 -- make a file executable
 map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
 
--- open filename under cursor
-map('n', 'gf', '<cmd>e <cfile><CR>')
-
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
