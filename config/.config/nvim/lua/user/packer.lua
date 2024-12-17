@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
     use { "tpope/vim-unimpaired" }
     use { "jiangmiao/auto-pairs" }
     use { "norcalli/nvim-colorizer.lua" }
+    use { "stevearc/oil.nvim" }
 
     -- Configurations for Nvim LSP
     use { "neovim/nvim-lspconfig" }
