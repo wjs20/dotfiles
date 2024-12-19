@@ -18,6 +18,10 @@ local send_to_active_term = function()
         end
     end
 
+    if #term_chans == 0 then
+        vim.print("No terminals available")
+        return
+    end
     -- we don't know which term to use if there are multiple
     if #term_chans > 1 then
         vim.print("Ambiguous; more than one term")
@@ -33,8 +37,9 @@ local send_to_active_term = function()
     elseif mode['mode'] == 'v' then
         local selection = get_selection('v')
         vim.api.nvim_chan_send(term_chan, selection .. "\n")
-    elseif mode['mode'] == 'V' then
-        local selection = get_selection('V')
+    elseif mode['mode'] == '\22' then
+        vim.print('matched!!!')
+        local selection = get_selection('\22')
         vim.api.nvim_chan_send(term_chan, selection .. "\n")
     end
 end
