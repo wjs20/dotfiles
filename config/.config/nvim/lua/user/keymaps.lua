@@ -20,9 +20,6 @@ map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
--- toggle undotree
-map('n', '<F2>', '<cmd>UndoTreeToggle<CR>')
-
 -- open vim fugitive
 map('n', '<leader>g', '<cmd>vertical topleft Git<CR>')
 
@@ -39,5 +36,5 @@ map('t', '<Esc>', '<C-\\><C-n>')
 map('v', 'Y', '"+y')
 map('n', 'gb', '<cmd>up | %bd | e#<CR>')
 
-map('n', '<leader>ll', ':.lua<CR>')
-map('n', '<leader>lf', ':%lua<CR>')
+map('n', '<leader>sl', ':.lua<CR>')
+map('n', '<leader>sf', ':%lua<CR>')
