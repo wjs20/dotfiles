@@ -7,3 +7,4 @@ config/.config/io.datasette.llm
 config/.config/htop/
 config/.config/sqls/
 config/.config/envman/
+config/.config/nvim/lazy-lock.json
