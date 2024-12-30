@@ -67,3 +67,14 @@ autocmd({ 'TermOpen' }, {
         vim.opt_local.number = false
     end
 })
+
+local path_setup = augroup('path_setup', { clear = true })
+autocmd({ 'BufNewFile', 'BufReadPost' }, {
+    group = path_setup,
+    callback = function()
+        local vim_paths = vim.env.VIM_PATHS
+        if vim_paths then
+            vim.opt.path = vim_paths
+        end
+    end
+})
