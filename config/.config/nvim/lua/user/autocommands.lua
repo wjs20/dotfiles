@@ -77,6 +77,14 @@ autocmd({ 'TermOpen' }, {
         vim.api.nvim_set_var('term_cmd', term_cmd)
     end
 })
+
+local html_auto_format = augroup('HTMLAutoFormat', { clear = true })
+autocmd({ 'BufEnter', 'BufWinEnter' }, {
+    group = html_auto_format,
+    pattern = { '*.html', '*.htmldjango' },
+    callback = function ()
+        if os.execute("command -v superhtml >/dev/null 2>&1") == 0 then
+           vim.opt_local.formatprg = 'superhtml fmt --stdin'
         end
     end
 })
