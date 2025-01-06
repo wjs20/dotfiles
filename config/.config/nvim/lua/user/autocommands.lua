@@ -59,7 +59,7 @@ autocmd({ 'BufNewFile' }, {
     pattern = "*.css"
 })
 
-local terminal = augroup('terminal', { clear = true })
+local terminal = augroup('Terminal', { clear = true })
 autocmd({ 'TermOpen' }, {
     group = terminal,
     callback = function()
@@ -68,13 +68,15 @@ autocmd({ 'TermOpen' }, {
     end
 })
 
-local path_setup = augroup('path_setup', { clear = true })
-autocmd({ 'BufNewFile', 'BufReadPost' }, {
-    group = path_setup,
+local repl = augroup('REPL', { clear = true })
+autocmd({ 'TermOpen' }, {
+    group = repl,
     callback = function()
-        local vim_paths = vim.env.VIM_PATHS
-        if vim_paths then
-            vim.opt.path = vim_paths
+        -- statusmsg will contain the command used to start the terminal
+        local term_cmd = vim.fn.histget(':', -1)
+        vim.api.nvim_set_var('term_cmd', term_cmd)
+    end
+})
         end
     end
 })
