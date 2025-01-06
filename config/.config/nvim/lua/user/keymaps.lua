@@ -34,7 +34,8 @@ map('t', '<Esc>', '<C-\\><C-n>')
 
 -- yanks to system clipbaord
 map('v', 'Y', '"+y')
-map('n', 'gb', '<cmd>up | %bd | e#<CR>')
+-- 'bufclear'
+map('n', '<leader>bc', '<cmd>up | %bd | e#<CR>')
 
 map('n', '<leader>sl', ':.lua<CR>')
 map('n', '<leader>sf', ':%lua<CR>')
