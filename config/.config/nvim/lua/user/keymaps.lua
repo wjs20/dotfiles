@@ -41,3 +41,6 @@ map('n', '<leader>sl', ':.lua<CR>')
 map('n', '<leader>sf', ':%lua<CR>')
 
 map('n', '<leader>pt', '<cmd>vs term://pytest<CR>')
+
+-- '/dev/null' like mapping. Deletes lines without putting them in unnamed reg
+map('n', 'd_', '"_dd')
