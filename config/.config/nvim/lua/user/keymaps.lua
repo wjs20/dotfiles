@@ -39,3 +39,5 @@ map('n', '<leader>bc', '<cmd>up | %bd | e#<CR>')
 
 map('n', '<leader>sl', ':.lua<CR>')
 map('n', '<leader>sf', ':%lua<CR>')
+
+map('n', '<leader>pt', '<cmd>vs term://pytest<CR>')
