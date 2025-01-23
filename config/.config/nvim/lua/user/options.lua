@@ -34,7 +34,8 @@ o.showmatch = true
 -- Colors
 o.termguicolors = true
 o.syntax = 'on'
-o.signcolumn = 'no'
+o.signcolumn = 'yes'
+o.colorcolumn = '80'
 
 o.filetype = 'on'
 
