@@ -45,9 +45,11 @@ devtools=(
     gh
     jq
     pandoc
+    pathman
     prettier
     rg
     sd
+    serviceman
     shellcheck
     shfmt
     watchexec
