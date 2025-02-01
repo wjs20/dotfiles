@@ -251,7 +251,7 @@ export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --L
 
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
-source $HOME/.local/startup
+test -e $HOME/.local/startup && source $HOME/.local/startup
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
