@@ -257,3 +257,5 @@ test -e $HOME/.local/startup && source $HOME/.local/startup
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 export SQLALCHEMY_SILENCE_UBER_WARNING=1
+
+export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"

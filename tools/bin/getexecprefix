@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+#
+# Print out the /bin path of the currently active python environment
+python -c 'import sys, os; print(os.path.join(sys.exec_prefix, "bin"))'

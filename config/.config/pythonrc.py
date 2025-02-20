@@ -1,0 +1,31 @@
+import os
+import sys
+import re
+import time
+import json
+import csv
+from pathlib import Path
+from pprint import pprint as pp
+
+# reloads modules
+from importlib import reload
+
+try:
+    import readline
+    import rlcompleter
+    readline.parse_and_bind("tab: complete")
+except ImportError:
+    pass
+
+class Timer:
+    """
+    with Timer():
+        do_something()
+    """
+
+    def __enter__(self):
+        self.start = time()
+        return self
+
+    def __exit__(self, *args):
+        print(f"Elapsed time: {time() - self.start:.4f} sec")
