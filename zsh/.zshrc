@@ -222,8 +222,6 @@ fi
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$PATH"
-export LOCALBIN="$HOME/.local/bin"
-export PATH="$LOCALBIN:$PATH"
 
 test -d "/usr/local/go/bin" && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 test -e "$HOME/.rbenv/bin/rbenv" && eval "$(~/.rbenv/bin/rbenv init - zsh)"
@@ -252,10 +250,8 @@ export LESS='--chop-long-lines --HILITE-UNREAD --ignore-case --jump-target=4 --L
 
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
-test -e $HOME/.local/startup && source $HOME/.local/startup
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-export SQLALCHEMY_SILENCE_UBER_WARNING=1
 
+export SQLALCHEMY_SILENCE_UBER_WARNING=1
 export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"
