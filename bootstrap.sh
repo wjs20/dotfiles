@@ -104,6 +104,7 @@ pydevtools=(
     httpie
     isort
     pdb-tools
+    pex
     pipenv
     pytest
     tox
