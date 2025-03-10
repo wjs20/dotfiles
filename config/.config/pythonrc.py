@@ -1,11 +1,12 @@
 import os
 import sys
 import re
-import time
+from time import time
 import json
 import csv
 from pathlib import Path
 from pprint import pprint as pp
+import itertools as it
 
 # reloads modules
 from importlib import reload
