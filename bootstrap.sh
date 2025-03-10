@@ -101,16 +101,17 @@ type -p pipx 1>/dev/null || python3 -m pipx ensurepath
 pydevtools=(
     black
     csvkit
+    dotenv
     httpie
     isort
-    pdb-tools
     pex
     pipenv
     pytest
+    sqlite-utils
     tox
+    mypy
     virtualenv
     build
-    datasette
     llm
     files-to-prompt
 )
