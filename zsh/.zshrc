@@ -223,6 +223,9 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$PATH"
 
+export VISUAL=nvim
+export EDITOR=nvim
+
 test -d "/usr/local/go/bin" && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 test -e "$HOME/.rbenv/bin/rbenv" && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
