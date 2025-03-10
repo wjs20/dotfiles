@@ -1,7 +1,7 @@
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [core]
-	editor = nvim
+    editor = nvim
     pager = delta
 [delta]
     navigate = true
@@ -11,7 +11,7 @@
 [interactive]
     diffFilter = delta --color-only
 [merge]
-	tool = vimdiff
+    tool = vimdiff
     conflictStyle = diff3
 [color "branch"]
     current = yellow reverse
@@ -27,12 +27,11 @@
     added = yellow
     changed = green
     untracked = cyan
-; [help]
-;     autoCorrect = immediate
-[include]
-    path = ~/.config/git/config.local
-[user]
-	email = johnsteele2009@live.co.uk
-	name = William Steele
+[help]
+    autoCorrect = immediate
+[includeIf "gitdir:~/"]
+    path = ~/git/.gitconfig
+[includeIf "gitdir:~/projects/"]
+    path = ~/projects/.gitconfig
 [rerere]
-	enabled = true
+    enabled = true
