@@ -6,8 +6,9 @@ add_newline = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-success_symbol = "[❯](fg:yellow)[❯](fg:red)[❯](fg:green)"
-error_symbol = "[❯](fg:red)[❯](fg:red)[❯](fg:red)"
+success_symbol = '\$'
+# success_symbol = "[❯](fg:yellow)[❯](fg:red)[❯](fg:green)"
+# error_symbol = "[❯](fg:red)[❯](fg:red)[❯](fg:red)"
 
 # [git_status]
 # disabled = true
