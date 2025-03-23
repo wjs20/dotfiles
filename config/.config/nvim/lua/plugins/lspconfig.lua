@@ -4,7 +4,6 @@ return {
         dependancies = { 'saghen/blink.cmp' },
         opts = {
             servers = {
-                lua_ls = {},
                 ruff = {},
                 pyright = {},
                 emmet_language_server = {}
@@ -42,13 +41,28 @@ return {
             })
 
             local lspconfig = require("lspconfig")
+            local blink = require('blink.cmp')
 
             for server, config in pairs(opts.servers) do
                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
                 -- `opts[server].capabilities, if you've defined it
-                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+                config.capabilities = blink.get_lsp_capabilities(config.capabilities)
                 lspconfig[server].setup(config)
             end
+
+            -- Doing this separately to add the 'vim' global ignore
+            lspconfig.lua_ls.setup{
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT"
+                        },
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            }
 
         end
     }
