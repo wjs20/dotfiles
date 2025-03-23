@@ -35,14 +35,13 @@ o.showmatch = true
 o.termguicolors = true
 o.syntax = 'on'
 o.signcolumn = 'yes'
-o.colorcolumn = '80'
 
 o.filetype = 'on'
 
 o.updatetime = 50
 
 o.list = true
-o.listchars = {eol = "↵", space = "·"} --, space = "·"}
+-- o.listchars = {eol = "↵", space = "·"} --, space = "·"}
 
 -- o.clipboard = "unnamedplus"
 
