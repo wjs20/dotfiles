@@ -12,11 +12,11 @@ import itertools as it
 from importlib import reload
 
 try:
-    import readline
     import rlcompleter
+    import readline
     readline.parse_and_bind("tab: complete")
 except ImportError:
-    pass
+    print('import error')
 
 class Timer:
     """
