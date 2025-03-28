@@ -46,7 +46,6 @@ devtools=(
     jq
     pandoc
     pathman
-    prettier
     rg
     sd
     serviceman
@@ -71,49 +70,32 @@ langs=(
     zig
 )
 
-# replacement from ps, not available from webi
-cargo install procs
-
 for lang in "${langs[@]}"
 do
     curl -sS https://webi.sh/$lang | sh && source ~/.config/envman/PATH.env
 done
 
-# Rust
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
-#sql language server
-go install github.com/sqls-server/sqls@latest
-
-# Python
-# install if installation cannot be found
-# [[ -d "$HOME/.pyenv" ]] || curl https://pyenv.run | bash
-# export PYENV_ROOT="$HOME/.pyenv"
-# # add pyenv to path if not already on path
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-pyenv install 3.12.4
-pyenv global 3.12.4
-python -m pip install --user pipx
-# if pipx isn't on path then add it
-type -p pipx 1>/dev/null || python3 -m pipx ensurepath
+python3 -m pip install --user --break-system-packages pipx
+python3 -m pipx ensurepath
 
 pydevtools=(
     black
+    build
     csvkit
-    dotenv
+    python-dotenv
+    files-to-prompt
     httpie
     isort
+    llm
+    mypy
     pex
     pipenv
     pytest
     sqlite-utils
     tox
-    mypy
     virtualenv
-    build
-    llm
-    files-to-prompt
 )
 
 for pydevtool in "${pydevtools[@]}"
