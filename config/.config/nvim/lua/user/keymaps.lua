@@ -18,6 +18,9 @@ map('n', '<leader>ev', '<cmd>Vexplore<CR>')
 -- make a file executable
 map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
 
+-- reload config file
+map('n', '<leader>r',  '<cmd>ru %<CR>')
+
 -- reload snippets file
 map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
@@ -43,5 +46,4 @@ map('n', '<leader>sf', ':%lua<CR>')
 
 map('n', '<leader>pt', '<cmd>vs term://pytest<CR>')
 
--- '/dev/null' like mapping. Deletes lines without putting them in unnamed reg
-map('n', 'd_', '"_dd')
+map('n', '\\', '<cmd>vs term://zsh<CR>')
