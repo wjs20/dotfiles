@@ -121,7 +121,6 @@ alias rmd="rm -rf"
 
 # rust cli
 alias cat="batcat"
-alias ls="exa"
 alias ps="procs"
 alias du="dust"
 

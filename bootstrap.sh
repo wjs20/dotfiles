@@ -31,6 +31,10 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     stow \
     curl \
     zsh \
+    tree \
+    exa \
+    zip \
+    unzip \
     xclip
 
 curl -sS https://webi.sh/webi | sh
