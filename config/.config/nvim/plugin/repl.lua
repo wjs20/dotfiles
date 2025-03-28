@@ -115,12 +115,12 @@ local term_restart = function ()
     end
 end
 
--- commands
-vim.api.nvim_create_user_command('TermSend', term_send, {})
-vim.api.nvim_create_user_command('TermRestart', term_restart, {})
-
--- keymaps
-vim.keymap.set('n', '[s', '<cmd>TermSend<cr>j')
-vim.keymap.set('v', '[s', '<cmd>TermSend<cr>')
-
-vim.keymap.set('n', '[r', '<cmd>TermRestart<cr>')
+-- -- commands
+-- vim.api.nvim_create_user_command('TermSend', term_send, {})
+-- vim.api.nvim_create_user_command('TermRestart', term_restart, {})
+--
+-- -- keymaps
+-- vim.keymap.set('n', '[s', '<cmd>TermSend<cr>j')
+-- vim.keymap.set('v', '[s', '<cmd>TermSend<cr>')
+--
+-- vim.keymap.set('n', '[r', '<cmd>TermRestart<cr>')
