@@ -35,6 +35,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     exa \
     zip \
     unzip \
+    htop \
     xclip
 
 curl -sS https://webi.sh/webi | sh
@@ -88,7 +89,6 @@ pydevtools=(
     black
     build
     csvkit
-    python-dotenv
     files-to-prompt
     httpie
     isort
@@ -97,6 +97,8 @@ pydevtools=(
     pex
     pipenv
     pytest
+    python-dotenv
+    ruff
     sqlite-utils
     tox
     virtualenv
