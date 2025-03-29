@@ -120,7 +120,7 @@ eval `ssh-agent -s` &>/dev/null
 alias rmd="rm -rf"
 
 # rust cli
-alias cat="batcat"
+alias cat="bat"
 alias ps="procs"
 alias du="dust"
 
