@@ -1,0 +1,8 @@
+URL="https://github.com/kristoff-it/superhtml/releases/latest/download/x86_64-linux-musl.tar.gz"
+DEST="$HOME/.local/opt/superhtml"
+FILE_NAME="x86_64-linux-musl.tar.gz"
+
+curl -LO $URL
+test -d $DEST || mkdir -p $DEST
+tar xvzf $FILE_NAME --one-top-level=$DEST
+rm $FILE_NAME
