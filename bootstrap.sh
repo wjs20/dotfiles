@@ -32,7 +32,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     curl \
     zsh \
     tree \
-    exa \
+    eza \
     zip \
     unzip \
     htop \
