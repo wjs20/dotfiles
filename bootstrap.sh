@@ -98,6 +98,7 @@ pydevtools=(
     pipenv
     pytest
     python-dotenv
+    pyright
     ruff
     sqlite-utils
     tox
