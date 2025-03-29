@@ -1,13 +1,15 @@
 return {
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' },
         keys = {
-            { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files'},
-            { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep'},
-            { '<leader>fb', '<cmd>Telescope buffers sort_mru=true<cr>', desc = 'Find Buffers'},
-            { '<leader>fd', '<cmd>Telescope diagnostics<cr>', desc = 'Find Diagnostics'},
-            { '<leader>fs', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', desc = 'Find Workspace Symbols'}
+            { '<leader>ff', '<cmd>Telescope find_files<cr>',                    desc = '[F]ind [F]iles' },
+            { '<leader>fg', '<cmd>Telescope live_grep<cr>',                     desc = '[L]ive [G]rep' },
+            { '<leader>fb', '<cmd>Telescope buffers sort_mru=true<cr>',         desc = '[F]ind [B]uffers' },
+            { '<leader>fd', '<cmd>Telescope diagnostics<cr>',                   desc = '[F]ind [D]iagnostics' },
+            { '<leader>fs', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', desc = '[F]ind Workspace [S]ymbols' },
+            { '<leader>fk', '<cmd>Telescope keymaps<cr>',                       desc = '[K]ey[M]aps' }
         }
     }
 }
