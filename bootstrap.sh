@@ -36,6 +36,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     zip \
     unzip \
     htop \
+    graphviz \
     xclip
 
 curl -sS https://webi.sh/webi | sh
