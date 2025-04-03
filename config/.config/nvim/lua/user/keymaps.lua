@@ -19,10 +19,10 @@ map('n', '<leader>ev', '<cmd>Vexplore<CR>')
 map('n', '<leader>x', '<cmd>!chmod 700 %<CR>')
 
 -- reload config file
-map('n', '<leader>r',  '<cmd>ru %<CR>')
+map('n', '<leader>r', '<cmd>ru %<CR>')
 
 -- reload snippets file
-map('n', '<leader>rs',  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
+map('n', '<leader>rs', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>')
 
 -- open vim fugitive
 map('n', '<leader>g', '<cmd>vertical topleft Git<CR>')
@@ -38,6 +38,7 @@ map('t', '<Esc>', '<C-\\><C-n>')
 
 -- yanks to system clipbaord
 map('v', 'Y', '"+y')
+
 -- 'bufclear'
 map('n', '<leader>bc', '<cmd>up | %bd | e#<CR>')
 
@@ -47,3 +48,10 @@ map('n', '<leader>sf', ':%lua<CR>')
 map('n', '<leader>pt', '<cmd>vs term://pytest<CR>')
 
 map('n', '\\', '<cmd>vs term://zsh<CR>')
+
+map('n', '<C-j>', ':m .+1<CR>==')
+map('n', '<C-k>', ':m .-2<CR>==')
+map('i', '<C-j>', ':<Esc>m .+1<CR>==gi')
+map('i', '<C-k>', ':<Esc>m .-2<CR>==gi')
+map('v', '<C-j>', ":m '>+1<CR>gv=gv")
+map('v', '<C-k>', ":m '<-2<CR>gv=gv")
