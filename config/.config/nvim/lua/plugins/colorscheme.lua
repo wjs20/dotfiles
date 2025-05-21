@@ -1,8 +1,8 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "ellisonleao/gruvbox.nvim",
         priority = 1000,
-        lazy = false
+        config = true,
+        contrast = "hard"
     }
 }

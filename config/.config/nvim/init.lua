@@ -1,4 +1,5 @@
 require('user')
 require('config.lazy')
 
-vim.cmd.colorscheme 'catppuccin'
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
