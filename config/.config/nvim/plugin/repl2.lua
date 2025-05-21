@@ -42,6 +42,8 @@ local repl = function()
     pipe_command(command)
 end
 
+-- creates a 'scratch' buffer where the output of the script with appear
+-- you need to open this manually
 vim.keymap.set('n', '<F3>', repl)
 
 -- print(vim.inspect(vim.api.nvim_list_bufs()))
