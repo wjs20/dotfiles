@@ -258,3 +258,5 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
 export SQLALCHEMY_SILENCE_UBER_WARNING=1
 export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"
+
+test -f $HOME/.local_env && source $HOME/.local_env
