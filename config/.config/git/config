@@ -9,7 +9,7 @@
 [diff]
     colorMoved = default
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [merge]
     tool = vimdiff
     conflictStyle = diff3
@@ -35,3 +35,12 @@
     path = ~/projects/.gitconfig
 [rerere]
     enabled = true
+[user]
+	email = you@example.com
+	name = William Steele
+[page]
+	diff = delta
+	show = delta
+	log = delta
+	blame = delta
+	reflog = delta
