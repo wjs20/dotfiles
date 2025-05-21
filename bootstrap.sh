@@ -26,6 +26,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     parallel \
     python3-pip \
     python3-venv \
+    python3-dev \
     tmux \
     wget \
     stow \
