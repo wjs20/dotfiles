@@ -1,27 +1,27 @@
-local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
-local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 local highlight_group = augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
 
 local whitespace = augroup('WhiteSpace', { clear = true })
 autocmd({ 'BufWritePre' }, {
-  command = [[:silent! %s#\($\n\s*\)\+\%$##]],
-  group = whitespace,
-  pattern = '*',
-  desc = 'removes whitespace from the end of the file'
+    command = [[:silent! %s#\($\n\s*\)\+\%$##]],
+    group = whitespace,
+    pattern = '*',
+    desc = 'removes whitespace from the end of the file'
 })
 autocmd({ 'BufWritePre' }, {
-  command =  [[:silent! %s/\s\+$//e]],
-  group = whitespace,
-  pattern = '*',
-  desc = 'removes whitespace from the end of the line'
+    command = [[:silent! %s/\s\+$//e]],
+    group = whitespace,
+    pattern = '*',
+    desc = 'removes whitespace from the end of the line'
 })
 
 
@@ -40,11 +40,6 @@ autocmd({ 'BufNewFile' }, {
     command = "0r ~/.skeletons/environment.yml",
     group = skeletons,
     pattern = "environment.yml"
-})
-autocmd({ 'BufNewFile' }, {
-    command = "0r ~/.skeletons/README_template.md",
-    group = skeletons,
-    pattern = "README.md"
 })
 autocmd({ 'BufNewFile' }, {
     command = "0r ~/.skeletons/LICENSE.txt",
@@ -82,9 +77,9 @@ local html_auto_format = augroup('HTMLAutoFormat', { clear = true })
 autocmd({ 'BufEnter', 'BufWinEnter' }, {
     group = html_auto_format,
     pattern = { '*.html', '*.htmldjango' },
-    callback = function ()
+    callback = function()
         if os.execute("command -v superhtml >/dev/null 2>&1") == 0 then
-           vim.opt_local.formatprg = 'superhtml fmt --stdin'
+            vim.opt_local.formatprg = 'superhtml fmt --stdin'
         end
     end
 })
