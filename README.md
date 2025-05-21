@@ -13,9 +13,8 @@ $ docker run --rm -it --mount type=bind,source="$(pwd)",target=/home/developer/d
 ```
 
 # TODO
-fix python linting in-editor support so messages are not duplicated between ruff and pylint
-fix rust in-editor support (text being left behind after error fixed)
-improve python autoformatting so it doesn't lose your place
+- fix Blink completion library ins-mode line completion
+- fix two lists coming up
 
 
 # MISC
