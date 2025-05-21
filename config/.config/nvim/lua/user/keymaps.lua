@@ -33,25 +33,36 @@ map('n', '<leader>dj', '<cmd>set ft=htmldjango<CR>')
 -- select last pasted text
 map('n', 'gp', '`[v`]')
 
--- use Esc to switch to normal mode in vim terminal
+-- terminal mappings
+map('n', '<leader>t', '<cmd>b term<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
+
+map('t', '<A-h>', '<C-\\><C-N><C-w>h')
+map('t', '<A-j>', '<C-\\><C-N><C-w>j')
+map('t', '<A-k>', '<C-\\><C-N><C-w>k')
+map('t', '<A-l>', '<C-\\><C-N><C-w>l')
+
+map('i', '<A-h>', '<C-\\><C-N><C-w>h')
+map('i', '<A-j>', '<C-\\><C-N><C-w>j')
+map('i', '<A-k>', '<C-\\><C-N><C-w>k')
+map('i', '<A-l>', '<C-\\><C-N><C-w>l')
+
+map('n', '<A-h>', '<C-w>h')
+map('n', '<A-j>', '<C-w>j')
+map('n', '<A-k>', '<C-w>k')
+map('n', '<A-l>', '<C-w>l')
 
 -- yanks to system clipbaord
 map('v', 'Y', '"+y')
 
--- 'bufclear'
-map('n', '<leader>bc', '<cmd>up | %bd | e#<CR>')
-
-map('n', '<leader>sl', ':.lua<CR>')
-map('n', '<leader>sf', ':%lua<CR>')
+-- source lua lines/files
+map('n', '<leader>sl', '<cmd>.lua<CR>')
+map('n', '<leader>sf', '<cmd>%lua<CR>')
 
 map('n', '<leader>pt', '<cmd>vs term://pytest<CR>')
 
+-- open a terminal split
 map('n', '\\', '<cmd>vs term://zsh<CR>')
 
-map('n', '<C-j>', ':m .+1<CR>==')
-map('n', '<C-k>', ':m .-2<CR>==')
-map('i', '<C-j>', ':<Esc>m .+1<CR>==gi')
-map('i', '<C-k>', ':<Esc>m .-2<CR>==gi')
-map('v', '<C-j>', ":m '>+1<CR>gv=gv")
-map('v', '<C-k>', ":m '<-2<CR>gv=gv")
+-- toggle scrollbind
+map('n', 'yos', "<cmd>setlocal scb! scb?<CR>")
