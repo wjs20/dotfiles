@@ -1,0 +1,18 @@
+{
+    "flask_route": {
+        "prefix": "flask_route",
+        "body": [
+            "@app.route('/${1:url}/', methods=['GET'])",
+            "def ${2:name}():",
+            "    $0"
+        ],
+        "description": "Flask Route"
+    },
+    "flask_route": {
+        "prefix": "ss",
+        "body": [
+            "db.session.scalar$1($0)"
+        ],
+        "description": "Flask-SQLAlchemy Session Execute"
+    }
+}

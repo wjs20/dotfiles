@@ -1,0 +1,78 @@
+{
+    "Jinja2 Extends": {
+        "prefix": "j-ext",
+        "body": [
+            "{% extends '${1:base}.html' %}"
+        ],
+        "description": "Extend a base template"
+    },
+    "Jinja2 Statement": {
+        "prefix": "j-stmt",
+        "body": [
+            "{% ${1:statement} %}"
+        ],
+        "description": "Jinja2 statement"
+    },
+    "Jinja2 Expression": {
+        "prefix": "j-expr",
+        "body": [
+            "{{ ${1:expression} }}"
+        ],
+        "description": "Jinja2 expression"
+    },
+    "Jinja2 Comment": {
+        "prefix": "j-comment",
+        "body": [
+            "{# ${1:comment} #}"
+        ],
+        "description": "Jinja2 comment"
+    },
+    "Jinja2 Include": {
+        "prefix": "j-include",
+        "body": [
+            "{% include '${1:filename}.html' %}"
+        ],
+        "description": "Include a template"
+    },
+    "Jinja2 Import": {
+        "prefix": "j-import",
+        "body": [
+            "{% import '${1:macros}.html' as ${2:macros} %}"
+        ],
+        "description": "Import a template as a namespace"
+    },
+    "Jinja2 From Import": {
+        "prefix": "j-from-import",
+        "body": [
+            "{% from '${1:macros}.html' import ${2:macro_name} %}"
+        ],
+        "description": "Import specific macro from template"
+    },
+    "Jinja2 Macro": {
+        "prefix": "j-macro",
+        "body": [
+            "{% macro ${1:name}(${2:args}) %}",
+            "  ${3:body}",
+            "{% endmacro %}"
+        ],
+        "description": "Define a macro"
+    },
+    "Jinja2 Block": {
+        "prefix": "j-block",
+        "body": [
+            "{% block ${1:name} %}",
+            "  ${2:content}",
+            "{% endblock ${1} %}"
+        ],
+        "description": "Define a block"
+    },
+    "Jinja2 Extends": {
+        "prefix": "j-call",
+        "body": [
+            "{% call ${1:name}(${2:args}) %}",
+            "  ${0:content}",
+            "{% endcall %}"
+        ],
+        "description": "Extend a base template"
+    }
+}
