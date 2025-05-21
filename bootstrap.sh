@@ -45,6 +45,7 @@ source ~/.config/envman/PATH.env
 
 devtools=(
     bat
+    curlie
     delta
     dotenv
     fd
