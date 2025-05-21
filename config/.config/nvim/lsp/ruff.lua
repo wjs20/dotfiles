@@ -4,4 +4,9 @@ return {
         "pyproject.toml", "ruff.toml", ".ruff.toml"
     },
     filetypes = { 'python' },
+    capabilities = {
+        general = {
+            positionEncodings = { "utf-16" }
+        }
+    }
 }

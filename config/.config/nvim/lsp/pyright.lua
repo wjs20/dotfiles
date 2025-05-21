@@ -10,5 +10,10 @@ return {
                 diagnosticMode = 'openFilesOnly',
             },
         },
+    },
+    capabilities = {
+        general = {
+            positionEncodings = { "utf-16" }
+        }
     }
 }
