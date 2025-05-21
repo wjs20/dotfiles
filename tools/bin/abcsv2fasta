@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+#
+usage() {
+    echo "Usage: $0 [-i input_file.csv] [-o output_file.fasta]"
+    echo "  -i : Specify the input file (CSV). If omitted, reads from stdin."
+    echo "  -o : Specify the output file (FASTA). If omitted, writes to stdout."
+    echo "  -h : Display this help and exit."
+    exit 1
+}
+
+while getopts "hi:o:" opt; do
+    case $opt in
+        i) input="$OPTARG"
+        ;;
+        o) output="$OPTARG"
+        ;;
+        h) usage
+        ;;
+        \?) usage
+        ;;
+    esac
+done
+
+if [ $OPTIND -eq 1 ]; then
+    usage
+fi
+
+convert_to_fasta() {
+    awk -F, 'NR>1 {print ">"$1"_H\n"$2"\n>"$1"_L\n"$3}'
+}
+
+if [[ -n $input ]]; then
+    if [[ -n $output ]]; then
+        convert_to_fasta < "$input" > "$output"
+    else
+        convert_to_fasta < "$input"
+    fi
+else
+    if [[ -n $output ]]; then
+        convert_to_fasta > "$output"
+    else
+        convert_to_fasta
+    fi
+fi
