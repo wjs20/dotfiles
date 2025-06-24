@@ -199,25 +199,6 @@ alias clop='xclip -selection clipboard -o'
 
 alias checkcsv='csvlook | less'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ws/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ws/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/ws/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ws/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/ws/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/ws/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -260,3 +241,16 @@ export SQLALCHEMY_SILENCE_UBER_WARNING=1
 export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"
 
 test -f $HOME/.local_env && source $HOME/.local_env
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/home/ws/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/ws/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
