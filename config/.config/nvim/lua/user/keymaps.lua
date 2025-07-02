@@ -66,3 +66,5 @@ map('n', '\\', '<cmd>vs term://zsh<CR>')
 
 -- toggle scrollbind
 map('n', 'yos', "<cmd>setlocal scb! scb?<CR>")
+
+map('n', ',w', "<cmd>wqall<CR>")
