@@ -14,9 +14,11 @@ from importlib import reload
 try:
     import rlcompleter
     import readline
+
     readline.parse_and_bind("tab: complete")
 except ImportError:
-    print('import error')
+    print("import error")
+
 
 class Timer:
     """
@@ -30,3 +32,11 @@ class Timer:
 
     def __exit__(self, *args):
         print(f"Elapsed time: {time() - self.start:.4f} sec")
+
+
+def show_methods(obj):
+    return [o for o in dir(obj) if not o.startswith("_")]
+
+
+def show_attrs(obj):
+    return [o for o in vars(obj) if not o.startswith("_")]
