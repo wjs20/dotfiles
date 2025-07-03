@@ -115,85 +115,6 @@ eval `ssh-agent -s` &>/dev/null
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-
-alias rmd="rm -rf"
-
-# rust cli
-alias cat="bat"
-alias ps="procs"
-alias du="dust"
-
-alias ez="nvim ~/.zshrc"
-alias es="nvim ~/.config/nvim/snippets"
-alias gensecret="openssl rand -hex 40"
-alias vim="nvim"
-alias fc="fc -e vim"
-
-# Python aliases
-alias pipall="python -m pip install -rrequirements.txt"
-alias pipdev="python -m pip install -rrequirements.dev"
-alias piped="python -m pip install -e ."
-alias whichpy="pyenv which python"
-alias ma="mamba activate"
-alias mc="mamba create"
-alias mf="mamba env create --force -f environment.yml"
-alias mu="mamba env update --prune -f environment.yml"
-alias ml="mamba env list"
-alias mr="mamba env remove -n"
-alias ipk="python -m ipykernel install --user --name"
-alias pm="python manage.py"
-alias pmmm="python manage.py makemigrations && python manage.py migrate"
-alias pmt="python manage.py test"
-alias cr="coverage report"
-alias chtml="coverage html"
-alias crmt="coverage run --source='.' manage.py test"
-alias pt="pytest"
-alias ptcov="pytest --cov-report term --cov=src tests"
-alias ptcovh="pytest --cov-report html --cov=src tests"
-alias lab="jupyter lab"
-alias sm="snakemake"
-
-# Docker (fixes issue with docker plugin not including --rm flag)
-alias dr="docker container run --rm"
-alias drit="docker container run -it --rm"
-alias dsp="docker system prune"
-
-# https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
-alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
-alias -s {js,json,env,md,html,css,toml,yaml,yml}=cat # cat pyproject.toml -> pyproject.toml
-alias -s git="git clone" # git clone git@github.com:wjs20/dotfiles.git -> git@github.com:wjs20/dotfiles.git
-
-# Postgres
-alias pgpsql="sudo -u postgres psql"
-
-# HTTP
-alias GET='http --follow --timeout 6'
-
-# git@github.com:stephenturner/oneliners.git
-# clear shortcut
-alias c='clear'
-alias cls='clear && ls'
-
-# use cut on space or comma delimeted files
-alias cuts="cut -d \" \""
-alias cutc="cut -d \",\""
-
-# pack and unpack tar.gz files
-alias tarup="tar -zcf"
-alias tardown="tar -zxf"
-
-# show your $PATH in prettier format
-alias showpath='echo $PATH | tr ":" "\n" | nl'
-
-alias today='date "+%Y-%m-%d"'
-alias fd-hidden='fd --type f --hidden --exclude .git'
-
-
-alias clip='xclip -selection c'
-alias clop='xclip -selection clipboard -o'
-
-alias checkcsv='csvlook | less'
 
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
@@ -202,12 +123,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export VISUAL=nvim
 export EDITOR=nvim
 
-test -d "/usr/local/go/bin" && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
-test -e "$HOME/.rbenv/bin/rbenv" && eval "$(~/.rbenv/bin/rbenv init - zsh)"
+[[ -d "/usr/local/go/bin" ]] && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
+
+[[ -e "$HOME/.rbenv/bin/rbenv" ]] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 export NVM_DIR="$HOME/.nvm"
-test -s "$NVM_DIR/nvm.sh"  && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-test -s "$NVM_DIR/bash_completion"  && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"
 
 eval "$(starship init zsh)"
 
@@ -233,10 +155,9 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-export SQLALCHEMY_SILENCE_UBER_WARNING=1
 export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"
 
-test -f $HOME/.local_env && source $HOME/.local_env
+[[ -f $HOME/.local_env  ]] && . $HOME/.local_env
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
@@ -250,3 +171,5 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+. $HOME/.zsh_aliases
