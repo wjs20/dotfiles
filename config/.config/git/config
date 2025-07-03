@@ -29,10 +29,6 @@
     untracked = cyan
 [help]
     autoCorrect = immediate
-[includeIf "gitdir:~/"]
-    path = ~/git/.gitconfig
-[includeIf "gitdir:~/projects/"]
-    path = ~/projects/.gitconfig
 [rerere]
     enabled = true
 [user]
