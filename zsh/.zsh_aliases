@@ -19,7 +19,7 @@ alias ml="mamba env list"
 alias mr="mamba env remove -n"
 alias ipk="python -m ipykernel install --user --name"
 alias pt="pytest"
-alias lab="jupyter lab"
+alias lab="jupyter lab --no-browser"
 
 # https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
@@ -35,5 +35,7 @@ alias tarup="tar -zcf"
 alias tardown="tar -zxf"
 alias showpath='echo $PATH | tr ":" "\n" | nl'
 
+
+alias comp='compdef _gnu_generic'
 
 alias today='date "+%Y-%m-%d"'
