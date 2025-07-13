@@ -123,5 +123,8 @@ pushd dotfiles
 stow {config,ignore,tmux,vim,zsh,tools}
 popd
 
+curl -L git.io/antigen > antigen.zsh
+
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
