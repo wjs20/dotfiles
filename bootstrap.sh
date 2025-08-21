@@ -29,6 +29,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     python3-dev \
     tmux \
     wget \
+    locate \
     stow \
     curl \
     zsh \
