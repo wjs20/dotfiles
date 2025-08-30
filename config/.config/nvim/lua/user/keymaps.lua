@@ -67,6 +67,7 @@ map('n', '\\', '<cmd>vs term://zsh<CR>')
 -- toggle scrollbind
 map('n', 'yos', "<cmd>setlocal scb! scb?<CR>")
 
-map('n', ',w', '<cmd>wqall<CR>')
-
 map('i', '<F2>', '<Esc>:w<CR>a')
+map('n', ',w', "<cmd>wqall<CR>")
+
+map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
