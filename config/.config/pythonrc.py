@@ -40,3 +40,8 @@ def show_methods(obj):
 
 def show_attrs(obj):
     return [o for o in vars(obj) if not o.startswith("_")]
+
+
+def ls(path=None):
+    path = path or "."
+    return os.listdir(path)
