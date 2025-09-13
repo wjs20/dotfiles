@@ -1,5 +1,6 @@
 
 alias l="eza"
+alias ll="eza --long"
 alias cat="bat"
 alias ps="procs"
 alias ez="nvim ~/.zshrc"
@@ -11,7 +12,8 @@ alias pipall="python -m pip install -rrequirements.txt"
 alias pipdev="python -m pip install -rrequirements.dev"
 alias piped="python -m pip install -e ."
 alias whichpy="pyenv which python"
-alias ma="mamba activate"
+alias ma='mamba activate `mamba env list | tail -n+3 | cuts -f3 | fzf`'
+alias mA='mamba deactivate'
 alias mc="mamba create"
 alias mf="mamba env create -y -f environment.yml"
 alias mu="mamba env update --prune -f environment.yml"
