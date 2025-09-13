@@ -93,6 +93,7 @@ pydevtools=(
     black
     build
     csvkit
+    cookiecutter
     files-to-prompt
     httpie
     isort
