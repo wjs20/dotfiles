@@ -27,6 +27,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     python3-pip \
     python3-venv \
     python3-dev \
+    pipx \
     tmux \
     wget \
     locate \
@@ -41,86 +42,63 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     graphviz \
     xclip
 
-curl -sS https://webi.sh/webi | sh
-source ~/.config/envman/PATH.env
+pipx ensurepath
 
-devtools=(
+curl https://mise.run | sh
+
+tools=(
+    rust
+    python
+    go
+    node
     bat
     curlie
     delta
-    dotenv
-    fd
     fzf
     gh
     jq
     pandoc
-    pathman
     rg
-    sd
-    serviceman
     shellcheck
     shfmt
-    watchexec
-    xsv
-    yq
+    qsv
+    cookiecutter
+    httpie-go
 )
 
-for tool in "${devtools[@]}"
+for tool in "${tools[@]}"
 do
-    curl -sS https://webi.sh/$tool | sh && source ~/.config/envman/PATH.env
+    mise use --global $tool
 done
 
-langs=(
-    go-essentials
-    golang
-    node
-    pyenv
-    rustlang
-    zig
-)
-
-for lang in "${langs[@]}"
-do
-    curl -sS https://webi.sh/$lang | sh && source ~/.config/envman/PATH.env
-done
+export PATH="$HOME/.cargo/bin:$PATH"
 
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
-python3 -m pip install --user --break-system-packages pipx
-python3 -m pipx ensurepath
-
-pydevtools=(
-    black
-    build
-    csvkit
-    cookiecutter
-    files-to-prompt
-    httpie
-    isort
+pytools=(
     llm
-    mypy
+    files-to-prompt
     pex
     pipenv
-    pytest
-    python-dotenv
-    pyright
     ruff
+    pyright
     sqlite-utils
-    tox
-    virtualenv
+    'python-dotenv[cli]'
 )
 
-for pydevtool in "${pydevtools[@]}"
+for pytool in "${pytools[@]}"
 do
-    pipx install $pydevtool
+    pipx install $pytool
 done
 
 # Setup mamba
-curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-chmod 700 Miniforge3-$(uname)-$(uname -m).sh
-bash Miniforge3-$(uname)-$(uname -m).sh
+# curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+# chmod 700 Miniforge3-$(uname)-$(uname -m).sh
+# bash Miniforge3-$(uname)-$(uname -m).sh
+#
+# Use pixi from prefix.dev instead
 
-rm .zshrc
+rm -f .zshrc
 pushd dotfiles
 stow {config,ignore,tmux,vim,zsh,tools}
 popd
@@ -129,4 +107,3 @@ curl -L git.io/antigen > antigen.zsh
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
