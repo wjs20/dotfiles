@@ -11,7 +11,8 @@ return {
             { '<leader>fd', '<cmd>Telescope diagnostics<cr>',                                    desc = '[F]ind [D]iagnostics' },
             { '<leader>fs', '<cmd>Telescope lsp_document_symbols ignore_symbols="variable"<cr>', desc = '[F]ind [D]ocument symbols' },
             { '<leader>fw', '<cmd>Telescope lsp_workspace_symbols query=""<cr>',                 desc = '[F]ind [W]orkspace symbols' },
-            { '<leader>fk', '<cmd>Telescope keymaps<cr>',                                        desc = '[K]ey[M]aps' }
+            { '<leader>fk', '<cmd>Telescope keymaps<cr>',                                        desc = '[K]ey[M]aps' },
+            { '<leader>ft', '<cmd>Telescope tagstack<cr>',                                       desc = '[K]ey[M]aps' }
         }
     }
 }
