@@ -68,7 +68,7 @@ tools=(
 
 for tool in "${tools[@]}"
 do
-    mise use --global $tool
+    mise install $tool
 done
 
 export PATH="$HOME/.cargo/bin:$PATH"
