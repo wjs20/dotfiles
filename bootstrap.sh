@@ -27,7 +27,6 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     python3-pip \
     python3-venv \
     python3-dev \
-    pipx \
     tmux \
     wget \
     locate \
@@ -42,10 +41,9 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     graphviz \
     xclip
 
-pipx ensurepath
-
 curl https://mise.run | sh
 mise install -g rust \
+    pipx \
     python \
     go \
     node \
@@ -64,6 +62,7 @@ mise install -g rust \
     httpie-go
 
 export PATH="$HOME/.cargo/bin:$PATH"
+pipx ensurepath
 
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 
