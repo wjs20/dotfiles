@@ -42,6 +42,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     zsh
 
 curl https://mise.run | sh
+~/.local/bin/mise activate zsh
 mise install -g rust \
     bat \
     cookiecutter \
