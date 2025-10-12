@@ -1,0 +1,8 @@
+# https://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch08_04.htm
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent)"
+  # Check if standard input is a terminal (i.e., it's an interactive session)
+  if [ -t 0 ]; then
+    ssh-add
+  fi
+fi
