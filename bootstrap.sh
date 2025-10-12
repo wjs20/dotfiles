@@ -42,8 +42,8 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     zsh
 
 curl https://mise.run | sh
-~/.local/bin/mise activate zsh
-mise install -g rust \
+
+mise use --global rust \
     bat \
     cookiecutter \
     curlie \
@@ -60,28 +60,17 @@ mise install -g rust \
     qsv \
     rg \
     shellcheck \
-    shfmt
+    shfmt  \
+    pipx:files-to-prompt \
+    pipx:llm \
+    pipx:pex \
+    pipx:pyright \
+    pipx:ruff \
+    pipx:sqlite-utils
 
 export PATH="$HOME/.cargo/bin:$PATH"
-pipx ensurepath
 
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
-
-pytools=(
-    llm
-    files-to-prompt
-    pex
-    pipenv
-    ruff
-    pyright
-    sqlite-utils
-    'python-dotenv[cli]'
-)
-
-for pytool in "${pytools[@]}"
-do
-    pipx install $pytool
-done
 
 # Setup mamba
 # curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
