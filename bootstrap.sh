@@ -43,7 +43,13 @@ sudo apt update && sudo apt install -y --no-install-recommends \
 
 curl https://mise.run | sh
 
-mise use --global rust \
+echo "Enter your github auth token"
+read MISE_GITHUB_TOKEN
+echo "Auth token saved"
+
+
+mise use --global usage \
+    rust \
     bat \
     cookiecutter \
     curlie \

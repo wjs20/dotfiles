@@ -194,5 +194,6 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 . $HOME/.zsh_aliases
+. $HOME/.secrets
 
 restart-shell () { exec -l $SHELL }
