@@ -72,11 +72,15 @@ ZSH_THEME="robbyrussell"
 
 
 # Add wisely, as too many plugins slow down shell startup.
+
+source $ZSH/oh-my-zsh.sh
+
 plugins=(
     aliases
     docker
     docker-compose
     dotenv
+    mise
     python
     ssh
     tmux
@@ -85,7 +89,6 @@ plugins=(
     zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 

@@ -47,7 +47,6 @@ echo "Enter your github auth token"
 read MISE_GITHUB_TOKEN
 echo "Auth token saved"
 
-
 mise use --global usage \
     rust \
     bat \
