@@ -84,9 +84,14 @@ curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN"
 #
 # Use pixi from prefix.dev instead
 
-rm -f .zshrc
-pushd dotfiles
-stow {config,ignore,tmux,vim,zsh,tools}
+for p in .zshrc .tmux.conf .config .vimrc
+do
+    mv "$p" "${p}.bak"
+done
+
+pushd ~/dotfiles
+stow --dotfiles {config,ignore,tmux,vim,zsh,tools}
+ln -s ssh/rc ~/.ssh/rc
 popd
 
 curl -L git.io/antigen > antigen.zsh
