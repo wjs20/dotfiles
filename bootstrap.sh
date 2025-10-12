@@ -45,31 +45,23 @@ sudo apt update && sudo apt install -y --no-install-recommends \
 pipx ensurepath
 
 curl https://mise.run | sh
-
-tools=(
-    rust
-    python
-    go
-    node
-    bat
-    curlie
-    delta
-    fzf
-    gh
-    jq
-    pandoc
-    rg
-    shellcheck
-    shfmt
-    qsv
-    cookiecutter
+mise install -g rust \
+    python \
+    go \
+    node \
+    bat \
+    curlie \
+    delta \
+    fzf \
+    gh \
+    jq \
+    pandoc \
+    rg \
+    shellcheck \
+    shfmt \
+    qsv \
+    cookiecutter \
     httpie-go
-)
-
-for tool in "${tools[@]}"
-do
-    mise install $tool
-done
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
