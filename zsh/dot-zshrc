@@ -199,4 +199,5 @@ unset __mamba_setup
 . $HOME/.zsh_aliases
 . $HOME/.secrets
 
+eval "$(~/.local/bin/mise activate zsh)"
 restart-shell () { exec -l $SHELL }

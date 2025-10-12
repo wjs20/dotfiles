@@ -8,9 +8,9 @@ alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
 
 # Python aliases
-alias pipall="python -m pip install -rrequirements.txt"
-alias pipdev="python -m pip install -rrequirements.dev"
-alias piped="python -m pip install -e ."
+alias pipi="python -m pip install"
+alias pipr="python -m pip install -rrequirements.txt"
+alias pipe="python -m pip install -e ."
 alias whichpy="pyenv which python"
 alias ma='mamba activate `mamba env list | tail -n+3 | cuts -f3 | fzf`'
 alias mA='mamba deactivate'
