@@ -35,11 +35,11 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     tree \
     unzip \
     wget \
-    xclip
+    xclip \
     xz-utils \
     zip \
     zlib1g-dev \
-    zsh \
+    zsh
 
 curl https://mise.run | sh
 mise install -g rust \
@@ -50,7 +50,7 @@ mise install -g rust \
     fzf \
     gh \
     go \
-    httpie-go
+    httpie-go \
     jq \
     node \
     pandoc \
@@ -59,7 +59,7 @@ mise install -g rust \
     qsv \
     rg \
     shellcheck \
-    shfmt \
+    shfmt
 
 export PATH="$HOME/.cargo/bin:$PATH"
 pipx ensurepath
