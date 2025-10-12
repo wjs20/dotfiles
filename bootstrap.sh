@@ -11,55 +11,55 @@ export PATH="$LOCAL_BIN:$PATH"
 
 sudo apt update && sudo apt install -y --no-install-recommends \
     build-essential \
-    libssl-dev \
-    zlib1g-dev \
+    curl \
+    eza \
+    graphviz \
+    htop \
     libbz2-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    libncursesw5-dev \
-    xz-utils \
-    tk-dev \
-    libxml2-dev \
-    libxmlsec1-dev \
     libffi-dev \
     liblzma-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    locate \
     parallel \
+    python3-dev \
     python3-pip \
     python3-venv \
-    python3-dev \
-    tmux \
-    wget \
-    locate \
     stow \
-    curl \
-    zsh \
+    tk-dev \
+    tmux \
     tree \
-    eza \
-    zip \
     unzip \
-    htop \
-    graphviz \
+    wget \
     xclip
+    xz-utils \
+    zip \
+    zlib1g-dev \
+    zsh \
 
 curl https://mise.run | sh
 mise install -g rust \
-    pipx \
-    python \
-    go \
-    node \
     bat \
+    cookiecutter \
     curlie \
     delta \
     fzf \
     gh \
+    go \
+    httpie-go
     jq \
+    node \
     pandoc \
+    pipx \
+    python \
+    qsv \
     rg \
     shellcheck \
     shfmt \
-    qsv \
-    cookiecutter \
-    httpie-go
 
 export PATH="$HOME/.cargo/bin:$PATH"
 pipx ensurepath
