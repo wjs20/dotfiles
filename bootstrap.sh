@@ -71,7 +71,8 @@ mise use --global usage \
     pipx:pex \
     pipx:pyright \
     pipx:ruff \
-    pipx:sqlite-utils
+    pipx:sqlite-utils \
+    pipx:litecli
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
