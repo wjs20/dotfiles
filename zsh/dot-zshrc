@@ -25,14 +25,14 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -73,14 +73,14 @@ ZSH_THEME="robbyrussell"
 
 # Add wisely, as too many plugins slow down shell startup.
 
-source $ZSH/oh-my-zsh.sh
-
 plugins=(
     aliases
     docker
     docker-compose
     dotenv
-    mise
+    fancy-ctrl-z
+    git
+    gh
     python
     ssh
     tmux
@@ -91,8 +91,10 @@ plugins=(
 
 
 # User configuration
-
+source $ZSH/oh-my-zsh.sh
 source "${HOME}/antigen.zsh"
+
+eval "$(~/.local/bin/mise activate zsh)"
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -114,23 +116,16 @@ antigen theme robbyrussell
 # Tell Antigen that you're done.
 antigen apply
 
-eval `ssh-agent -s` &>/dev/null
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -140,16 +135,12 @@ eval `ssh-agent -s` &>/dev/null
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[[ -f $HOME/.zsh_aliases  ]] && . $HOME/.zsh_aliases
 
 
 export PIP_REQUIRE_VIRTUALENV=true
 export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-eval "$(mise activate zsh)"
-
-export VISUAL=nvim
-export EDITOR=nvim
 
 [[ -d "/usr/local/go/bin" ]] && export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin"
 
@@ -181,7 +172,7 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
 export PYTHONSTARTUP="/home/ws/.config/pythonrc.py"
 
-[[ -f $HOME/.local_env  ]] && . $HOME/.local_env
+[[ -f $HOME/.secrets  ]] && . $HOME/.secrets
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
@@ -196,8 +187,8 @@ fi
 unset __mamba_setup
 # <<< mamba initialize <<<
 
-. $HOME/.zsh_aliases
-. $HOME/.secrets
-
-eval "$(~/.local/bin/mise activate zsh)"
 restart-shell () { exec -l $SHELL }
+export PATH="/home/ws/.pixi/bin:$PATH"
+
+autoload -Uz compinit && compinit  # redundant with Oh My Zsh
+eval "$(pixi completion --shell zsh)"
