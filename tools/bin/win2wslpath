@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#
+#
+sed -e 's#S:\\#/mnt/s/#' -e 's#\\#/#g'
