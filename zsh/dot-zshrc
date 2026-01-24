@@ -78,7 +78,6 @@ plugins=(
     docker
     docker-compose
     dotenv
-    fancy-ctrl-z
     git
     gh
     python
@@ -92,29 +91,8 @@ plugins=(
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
-source "${HOME}/antigen.zsh"
 
 eval "$(~/.local/bin/mise activate zsh)"
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle MichaelAquilina/zsh-you-should-use
-
-# Load the theme.
-antigen theme robbyrussell
-
-# Tell Antigen that you're done.
-antigen apply
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -188,7 +166,7 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 restart-shell () { exec -l $SHELL }
+
 export PATH="/home/ws/.pixi/bin:$PATH"
 
-autoload -Uz compinit && compinit  # redundant with Oh My Zsh
 eval "$(pixi completion --shell zsh)"
