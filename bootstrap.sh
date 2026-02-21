@@ -12,6 +12,7 @@ export PATH="$LOCAL_BIN:$PATH"
 sudo apt update && sudo apt install -y --no-install-recommends \
     build-essential \
     curl \
+    datamash \
     eza \
     graphviz \
     htop \
