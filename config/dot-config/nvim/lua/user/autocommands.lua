@@ -27,6 +27,11 @@ autocmd({ 'BufWritePre' }, {
 
 local skeletons = augroup('Skeletons', { clear = true })
 autocmd({ 'BufNewFile' }, {
+    command = "0r ~/.skeletons/Makefile",
+    group = skeletons,
+    pattern = "Makefile"
+})
+autocmd({ 'BufNewFile' }, {
     command = "0r ~/.skeletons/bash.sh",
     group = skeletons,
     pattern = "*.sh"
