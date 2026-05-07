@@ -72,4 +72,4 @@ map('n', ',w', "<cmd>wqall<CR>")
 
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
-map("n", "<C-R>", "<cmd>!%:p<CR>", {desc = "Run the current file"})
+map("n", ",r", "<cmd>w<cr><cmd>!%:p<cr>", {desc = "Run the current file"})
