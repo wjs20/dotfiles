@@ -13,6 +13,7 @@ sudo apt update && sudo apt install -y --no-install-recommends \
     build-essential \
     curl \
     datamash \
+    dstat \
     eza \
     graphviz \
     htop \
