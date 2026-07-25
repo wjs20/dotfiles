@@ -6,6 +6,9 @@ alias ps="procs"
 alias ez="nvim ~/.zshrc"
 alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
+alias mkx='chmod u+x'
+
+alias lines="wc -l"
 
 # Python aliases
 alias pipi="python -m pip install"

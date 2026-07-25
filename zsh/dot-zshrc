@@ -169,3 +169,5 @@ export PATH="/home/ws/.pixi/bin:$PATH"
 
 eval "$(pixi completion --shell zsh)"
 source /home/ws/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+zless () { zcat "$@" | less }
