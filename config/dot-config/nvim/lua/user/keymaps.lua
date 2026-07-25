@@ -68,8 +68,7 @@ map('n', '\\', '<cmd>vs term://zsh<CR>')
 map('n', 'yos', "<cmd>setlocal scb! scb?<CR>")
 
 map('i', '<F2>', '<Esc>:w<CR>a')
-map('n', ',w', "<cmd>wqall<CR>")
 
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
-map("n", ",r", "<cmd>w<cr><cmd>!%:p<cr>", {desc = "Run the current file"})
+map("n", "<leader>r", "<cmd>w<cr><cmd>!%:p<cr>", {desc = "Run the current file"})
