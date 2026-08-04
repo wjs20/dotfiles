@@ -71,10 +71,11 @@ mise use --global usage \
     pipx:files-to-prompt \
     pipx:llm \
     pipx:pex \
-    pipx:pyright \
     pipx:ruff \
     pipx:sqlite-utils \
     pipx:litecli
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 export PATH="$HOME/.cargo/bin:$PATH"
 

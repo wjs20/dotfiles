@@ -11,3 +11,4 @@ config/.config/sqls/
 config/.config/envman/
 config/.config/nvim/lazy-lock.json
 **/.env
+config/dot-config/uv
