@@ -3,6 +3,9 @@
 [core]
     editor = nvim
     pager = delta
+[pull]
+	rebase = true
+	ff = only
 [delta]
     navigate = true
     light = false
@@ -11,8 +14,9 @@
 [interactive]
 	diffFilter = delta --color-only
 [merge]
-    tool = vimdiff
-    conflictStyle = diff3
+	tool = nvimdiff
+[mergetool]
+	keepBackup = false
 [color "branch"]
     current = yellow reverse
     local = yellow
