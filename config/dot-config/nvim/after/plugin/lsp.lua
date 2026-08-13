@@ -15,7 +15,13 @@ vim.lsp.config('*', {
     root_markers = { '.git' },
 })
 
-vim.lsp.enable({ 'lua-language-server', 'ruff', 'superhtml', 'texlab', 'ty'})
+vim.lsp.enable({
+    'lua-language-server',
+    'superhtml',
+    'texlab',
+    'ty',
+    'jedi-language-server',
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
