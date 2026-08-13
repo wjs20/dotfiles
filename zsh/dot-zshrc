@@ -171,3 +171,12 @@ eval "$(pixi completion --shell zsh)"
 source /home/ws/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 zless () { zcat "$@" | less }
+
+# zsh completions
+autoload -Uz compinit && compinit
+
+# lets zsh use bash completion files
+test -e /etc/bash_completion.d/azure-cli && \
+    autoload -U +X bashcompinit && \
+    bashcompinit && \
+    source /etc/bash_completion.d/azure-cli
