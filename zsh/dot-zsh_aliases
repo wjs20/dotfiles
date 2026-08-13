@@ -4,6 +4,7 @@ alias ll="eza --long"
 alias cat="bat"
 alias ps="procs"
 alias ez="nvim ~/.zshrc"
+alias ev="nvim ~/.config/nvim"
 alias gensecret="openssl rand -hex 40"
 alias vim="nvim"
 alias mkx='chmod u+x'
