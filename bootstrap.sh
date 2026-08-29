@@ -64,7 +64,6 @@ mise use --global usage \
     pandoc \
     pipx \
     python \
-    qsv \
     rg \
     shellcheck \
     shfmt  \
@@ -75,7 +74,12 @@ mise use --global usage \
     pipx:sqlite-utils \
     pipx:litecli
 
+
+
+# python language server
 curl -LsSf https://astral.sh/uv/install.sh | sh
+uv tool install ty@latest
+uv tool install nvim-remote
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -102,3 +106,11 @@ curl -L git.io/antigen > antigen.zsh
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Installing miller
+wget https://github.com/johnkerl/miller/releases/download/v6.21.0/miller-6.21.0-linux-amd64.tar.gz
+mv miller-6.21.0-linux-amd64.tar.gz $HOME/.local/opt/
+pushd $HOME/.local/opt/ &&
+    tar -xzf miller-6.21.0-linux-amd64.tar.gz &&
+    ln -s `pwd`/miller-6.21.0-linux-amd64/mlr $HOME/.local/bin/ &&
+    popd
