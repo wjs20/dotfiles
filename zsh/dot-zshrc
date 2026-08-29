@@ -180,3 +180,11 @@ test -e /etc/bash_completion.d/azure-cli && \
     autoload -U +X bashcompinit && \
     bashcompinit && \
     source /etc/bash_completion.d/azure-cli
+
+if [ -n "$NVIM" ]; then
+    if [ -x "$(command -v nvr)" ]; then
+        alias nvim=nvr
+    else
+        alias nvim='echo "No nesting!"'
+    fi
+fi
