@@ -20,7 +20,6 @@ vim.lsp.enable({
     'superhtml',
     'texlab',
     'ty',
-    'jedi-language-server',
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
