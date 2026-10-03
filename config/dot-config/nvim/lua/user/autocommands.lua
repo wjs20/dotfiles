@@ -88,3 +88,17 @@ autocmd({ 'BufEnter', 'BufWinEnter' }, {
         end
     end
 })
+
+
+local document_highlight = augroup('DocumentHighlight', { clear = true })
+autocmd({ 'CursorHold', 'CursorHoldI'}, {
+    group = document_highlight ,
+    pattern = "*.py",
+    callback = vim.lsp.buf.document_highlight
+})
+
+autocmd('CursorMoved', {
+    group = document_highlight ,
+    pattern = "*.py",
+    callback = vim.lsp.buf.clear_references
+})
