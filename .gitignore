@@ -12,3 +12,5 @@ config/.config/envman/
 config/.config/nvim/lazy-lock.json
 **/.env
 config/dot-config/uv
+config/dot-config/QtProject.conf
+config/dot-config/VCG/
