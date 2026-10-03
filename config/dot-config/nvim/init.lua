@@ -7,3 +7,13 @@ vim.cmd('colorscheme gruvbox')
 vim.cmd('packadd! nohlsearch')
 vim.cmd('packadd! nvim.difftool')
 vim.cmd('packadd! nvim.undotree')
+
+
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+    source = "if_many",
+    header = "",
+    prefix = "",
+  }
+})
