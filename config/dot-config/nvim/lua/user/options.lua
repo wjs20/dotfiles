@@ -9,6 +9,7 @@ o.swapfile        = false
 o.undodir         = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile        = true
 
+
 o.cursorline      = true
 
 -- Line numbers
@@ -28,6 +29,7 @@ o.smartindent     = true
 
 -- Search
 o.incsearch       = true
+o.inccommand      = 'split'
 o.hlsearch        = false
 o.showmatch       = true
 
@@ -35,6 +37,8 @@ o.showmatch       = true
 o.termguicolors   = true
 o.syntax          = 'on'
 o.signcolumn      = 'yes'
+o.winblend        = 30
+o.pumblend        = 30
 
 o.filetype        = 'on'
 
