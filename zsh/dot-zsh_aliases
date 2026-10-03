@@ -31,7 +31,8 @@ alias servewd="pyserver -b 127.0.0.1 -d . 9000"
 # https://github.com/stefanjudis/dotfiles/blob/primary/config/oh-my-zsh/aliases.zsh
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
 alias -s {js,json,env,md,html,css,toml,yaml,yml}=cat # cat pyproject.toml -> pyproject.toml
-alias -s {csv,tsv}="csvlook | less" # cat pyproject.toml -> pyproject.toml
+alias -s csv="column -t -s,"
+alias -s tsv="column -t"
 alias -s git="git clone" # git clone git@github.com:wjs20/dotfiles.git -> git@github.com:wjs20/dotfiles.git
 alias get='http --follow --timeout 6'
 alias c='clear'
