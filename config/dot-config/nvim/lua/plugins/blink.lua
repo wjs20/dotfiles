@@ -2,6 +2,7 @@ return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
     dependencies = { 'rafamadriz/friendly-snippets' },
+    enabled = true,
 
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -40,13 +41,13 @@ return {
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
-            providers = {
-                snippets = {},
-                lsp = {},
-                buffer = {},
-                path = {},
-                omni = {}
-            },
+            -- providers = {
+            --     buffer = {min_keyword_length = 0},
+            --     omni = {min_keyword_length = 0},
+            --     lsp = {min_keyword_length = 5},
+            --     snippets = {min_keyword_length = 3},
+            --     path = {min_keyword_length = 5},
+            -- },
         },
 
         cmdline = { enabled = true },
