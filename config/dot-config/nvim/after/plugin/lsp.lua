@@ -39,9 +39,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
 
-        if client:supports_method('workspace/symbol') then
-            vim.keymap.set('n', '<leader>fw', vim.lsp.buf.workspace_symbol)
-        end
+        -- if client:supports_method('workspace/symbol') then
+        --     vim.keymap.set('n', '<leader>fw', vim.lsp.buf.workspace_symbol)
+        -- end
     end,
 })
 
