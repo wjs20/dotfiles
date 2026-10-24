@@ -1,7 +1,5 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
-
 capabilities = vim.tbl_deep_extend('force', capabilities, {
     textDocument = {
         semanticTokens = {
@@ -26,9 +24,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/implementation') then
-            -- Create a keymap for vim.lsp.buf.implementation ...
-        end
 
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
         if client:supports_method('textDocument/completion') then

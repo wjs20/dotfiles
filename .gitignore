@@ -14,3 +14,4 @@ config/.config/nvim/lazy-lock.json
 config/dot-config/uv
 config/dot-config/QtProject.conf
 config/dot-config/VCG/
+config/dot-config/io.datasette.llm/
