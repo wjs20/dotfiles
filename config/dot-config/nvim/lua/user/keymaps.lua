@@ -71,4 +71,10 @@ map('i', '<F2>', '<Esc>:w<CR>a')
 
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
-map("n", "<leader>r", "<cmd>w<cr><cmd>!%:p<cr>", {desc = "Run the current file"})
+-- map("n", "<leader>r", "<cmd>w<cr><cmd>!%:p<cr>", {desc = "Run the current file"})
+
+
+map({ "n", "x" }, "<leader>re", function()
+    -- this keymap doesn't select any textobject by default, so you may need to provide one each time you use it.
+    require("refactoring").select_refactor()
+end, { desc = "Select refactor" })
