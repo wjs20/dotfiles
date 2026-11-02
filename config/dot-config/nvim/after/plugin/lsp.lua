@@ -18,6 +18,7 @@ vim.lsp.enable({
     'superhtml',
     'texlab',
     'ty',
+    'typescript-language-server'
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
