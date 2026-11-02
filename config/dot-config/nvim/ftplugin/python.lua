@@ -4,3 +4,4 @@
 -- vim.g.python_indent = python_indent
 --
 vim.bo.formatprg='autopep8 -'
+vim.cmd('compiler ty')
